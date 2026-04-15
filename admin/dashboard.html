@@ -567,49 +567,45 @@
                 <div class="stats-row">
                     <div class="stat-item">
                         <div class="stat-item-label">Total Plays</div>
-                        <div class="stat-item-value">8,000+</div>
+                        <div class="stat-item-value" id="analyticsTotal">0</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-item-label">Monthly Listeners</div>
-                        <div class="stat-item-value">2,500+</div>
+                        <div class="stat-item-value" id="analyticsListeners">0</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-item-label">Engagement Rate</div>
-                        <div class="stat-item-value">24.5%</div>
+                        <div class="stat-item-value" id="analyticsEngagement">0%</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-item-label">Growth (30d)</div>
-                        <div class="stat-item-value">+18%</div>
+                        <div class="stat-item-value" id="analyticsGrowth">0%</div>
                     </div>
                 </div>
 
                 <div class="chart-container">
                     <div class="chart-title">Top Songs by Plays</div>
-                    <div class="chart-bar">
-                        <div class="chart-bar-fill" style="width: 85%;">Fading Out - 2,040 plays</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-bar-fill" style="width: 72%;">Run From The Voices - 1,728 plays</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-bar-fill" style="width: 65%;">Zero Sum - 1,560 plays</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-bar-fill" style="width: 58%;">Found You In The Rain Fall - 1,392 plays</div>
-                    </div>
+                    <div id="topSongsChart"></div>
                 </div>
 
                 <div class="chart-container">
                     <div class="chart-title">Plays by Platform</div>
-                    <div class="chart-bar">
-                        <div class="chart-bar-fill" style="width: 60%;">YouTube - 4,800 plays</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-bar-fill" style="width: 25%;">Spotify - 2,000 plays</div>
-                    </div>
-                    <div class="chart-bar">
-                        <div class="chart-bar-fill" style="width: 15%;">Apple Music - 1,200 plays</div>
-                    </div>
+                    <div id="platformChart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Monthly Trends</div>
+                    <div id="trendChart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Top Countries</div>
+                    <div id="countriesChart"></div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">Device Breakdown</div>
+                    <div id="devicesChart"></div>
                 </div>
             </div>
 
@@ -732,6 +728,7 @@
     </div>
 
     <script src="../admin_data.js"></script>
+    <script src="./analytics_data.js"></script>
     <script>
         // Check authentication
         if (!localStorage.getItem('adminToken')) {
@@ -751,6 +748,7 @@
             // Populate tables
             populateAlbumsTable();
             populateSongsTable();
+            loadAnalytics();
         }
         
         // Populate Albums Table
@@ -797,6 +795,84 @@
                 `;
                 tbody.appendChild(row);
             });
+        }
+
+
+        // Load and display analytics
+        function loadAnalytics() {
+            const analytics = JSON.parse(localStorage.getItem('analyticsData') || '{}');
+            
+            // Update stat cards
+            document.getElementById('analyticsTotal').textContent = analytics.totalPlays?.toLocaleString() || '8,000';
+            document.getElementById('analyticsListeners').textContent = analytics.monthlyListeners?.toLocaleString() || '2,500';
+            document.getElementById('analyticsEngagement').textContent = (analytics.engagementRate || 24.5) + '%';
+            document.getElementById('analyticsGrowth').textContent = '+' + (analytics.growthRate || 18) + '%';
+            
+            // Render charts
+            renderTopSongsChart(analytics.songPlays);
+            renderPlatformChart(analytics.platformStats);
+            renderTrendChart(analytics.monthlyTrends);
+            renderCountriesChart(analytics.topCountries);
+            renderDevicesChart(analytics.devices);
+        }
+        
+        function renderTopSongsChart(data) {
+            const container = document.getElementById('topSongsChart');
+            if (!data || data.length === 0) return;
+            
+            const maxPlays = Math.max(...data.map(d => d.plays));
+            let html = '';
+            data.slice(0, 8).forEach(item => {
+                const width = (item.plays / maxPlays) * 100;
+                html += '<div class="chart-bar"><div class="chart-bar-fill" style="width: ' + width + '%;">' + item.title + ' - ' + item.plays.toLocaleString() + ' plays</div></div>';
+            });
+            container.innerHTML = html;
+        }
+        
+        function renderPlatformChart(data) {
+            const container = document.getElementById('platformChart');
+            if (!data || data.length === 0) return;
+            
+            let html = '';
+            data.forEach(item => {
+                html += '<div class="chart-bar"><div class="chart-bar-fill" style="width: ' + item.percentage + '%;">' + item.platform + ' - ' + item.plays.toLocaleString() + ' plays</div></div>';
+            });
+            container.innerHTML = html;
+        }
+        
+        function renderTrendChart(data) {
+            const container = document.getElementById('trendChart');
+            if (!data || data.length === 0) return;
+            
+            const maxPlays = Math.max(...data.map(d => d.plays));
+            let html = '';
+            data.forEach(item => {
+                const width = (item.plays / maxPlays) * 100;
+                html += '<div class="chart-bar"><div class="chart-bar-fill" style="width: ' + width + '%;">' + item.month + ' - ' + item.plays.toLocaleString() + ' plays</div></div>';
+            });
+            container.innerHTML = html;
+        }
+        
+        function renderCountriesChart(data) {
+            const container = document.getElementById('countriesChart');
+            if (!data || data.length === 0) return;
+            
+            let html = '';
+            data.forEach(item => {
+                html += '<div class="chart-bar"><div class="chart-bar-fill" style="width: ' + item.percentage + '%;">' + item.country + ' - ' + item.plays.toLocaleString() + ' plays</div></div>';
+            });
+            container.innerHTML = html;
+        }
+        
+        function renderDevicesChart(data) {
+            const container = document.getElementById('devicesChart');
+            if (!data || data.length === 0) return;
+            
+            let html = '';
+            data.forEach(item => {
+                html += '<div class="chart-bar"><div class="chart-bar-fill" style="width: ' + item.percentage + '%;">' + item.device + ' - ' + item.plays.toLocaleString() + ' plays</div></div>';
+            });
+            container.innerHTML = html;
         }
 
         // Menu navigation
