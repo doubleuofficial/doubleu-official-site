@@ -4,285 +4,278 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music | DoubleU Official</title>
-    <link rel="stylesheet" href="../css/style.css">
     <style>
-        /* Cinematic Noir Theme Overrides */
-        root {
+        :root {
             --neon-cyan: #00f2ff;
             --neon-orange: #ff8c00;
-            --dark-bg: #0a0a0a;
-            --card-bg: #151515;
+            --dark-bg: #050505;
+            --card-bg: #0f0f0f;
+            --noir-overlay: rgba(0, 0, 0, 0.85);
         }
 
         body {
             background-color: var(--dark-bg);
-            color: #fff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* Cinematic Noir Gradient Background */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 140, 0, 0.05) 0%, transparent 50%),
+                linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            margin: 0;
+            line-height: 1.6;
         }
 
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-        /* Hero Section */
+        /* Hero / Upcoming Release */
         .hero-release {
-            padding: 80px 0;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/240.webp');
+            position: relative;
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(var(--noir-overlay), var(--noir-overlay)), url('../assets/240.webp');
             background-size: cover;
             background-position: center;
             border-bottom: 2px solid var(--neon-cyan);
-            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
         }
 
-        .hero-release h1 { color: var(--neon-cyan); font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
-        .hero-release h2 { color: var(--neon-orange); margin-bottom: 20px; }
+        .hero-release h1 { font-size: 4rem; color: var(--neon-cyan); text-transform: uppercase; margin: 10px 0; letter-spacing: 6px; text-shadow: 0 0 15px var(--neon-cyan); }
+        .hero-release h2 { color: var(--neon-orange); font-weight: 300; letter-spacing: 3px; text-transform: uppercase; }
 
-        /* Grid Setup */
+        /* Grid Styling */
+        .section-title {
+            margin: 80px 0 40px;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            border-left: 5px solid var(--neon-orange);
+            padding-left: 20px;
+            color: #fff;
+        }
+
         .music-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 40px 0;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            padding-bottom: 100px;
         }
 
+        /* Entire Card Clickable */
         .music-card {
             background: var(--card-bg);
-            border: 1px solid #333;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid #1a1a1a;
             position: relative;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: pointer;
+            text-decoration: none; 
+            display: block; 
+            color: inherit;
+            border-radius: 4px;
             overflow: hidden;
         }
 
         .music-card:hover {
-            transform: translateY(-10px);
+            transform: scale(1.03);
             border-color: var(--neon-cyan);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 242, 255, 0.15);
+            z-index: 10;
         }
 
-        .card-image { position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden; }
-        .card-image img { width: 100%; height: 100%; object-fit: cover; }
-
-        .card-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 242, 255, 0.2);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s ease;
+        .card-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            position: relative;
         }
 
-        .music-card:hover .card-overlay { opacity: 1; }
-
-        .card-link {
-            padding: 10px 20px;
-            background: var(--neon-cyan);
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(40%) contrast(1.1);
+            transition: filter 0.5s ease;
         }
 
-        .card-content { padding: 20px; }
-        .card-content h3 { margin: 0; font-size: 1.2rem; }
-        .card-content a { text-decoration: none; color: #fff; transition: color 0.3s; }
-        .card-content a:hover { color: var(--neon-orange); }
+        .music-card:hover .card-image img {
+            filter: grayscale(0%) contrast(1);
+        }
 
-        .artist { color: var(--neon-cyan); font-size: 0.9rem; margin: 5px 0; }
-        .release-date { color: #888; font-size: 0.8rem; }
+        .card-content { padding: 25px; border-top: 1px solid #222; background: linear-gradient(180deg, #111, #0a0a0a); }
+        .card-content h3 { margin: 0; font-size: 1.2rem; letter-spacing: 1.5px; text-transform: uppercase; }
+        .artist { color: var(--neon-cyan); font-size: 0.9rem; margin: 8px 0; font-weight: bold; letter-spacing: 1px; }
+        .release-date { color: #555; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        .section-title {
-            border-left: 5px solid var(--neon-orange);
-            padding-left: 15px;
-            margin-top: 50px;
-            text-transform: uppercase;
+        .label-youtube { color: #ff3333; font-size: 0.7rem; font-weight: bold; border: 1px solid #ff3333; padding: 2px 6px; border-radius: 2px; margin-left: 10px; }
+
+        footer {
+            text-align: center;
+            padding: 80px 0;
+            background: #000;
+            color: #333;
+            font-size: 0.85rem;
             letter-spacing: 2px;
+            border-top: 1px solid #111;
         }
-
-        .label-youtube { color: #ff0000; font-weight: bold; font-size: 0.7rem; }
     </style>
 </head>
 <body>
 
     <header class="hero-release">
         <div class="container">
-            <p style="letter-spacing: 3px; color: var(--neon-cyan);">UPCOMING RELEASE</p>
+            <h2 style="font-size: 1rem; margin-bottom: 0; color: #fff;">UPCOMING RELEASE</h2>
             <h1>A Place To Land</h1>
-            <h2>Coming April 24, 2026</h2>
-            <div id="countdown" style="font-size: 1.5rem; font-weight: bold; color: var(--neon-orange);"></div>
+            <h2 id="countdown" style="color: var(--neon-orange);">APRIL 24, 2026</h2>
         </div>
     </header>
 
     <main class="container">
         
-        <h2 class="section-title">Latest Album</h2>
+        <h2 class="section-title">Faded 405 — Album Tracks</h2>
         <div class="music-grid">
-            <div class="music-card album-card">
-                <div class="card-image">
-                    <img src="../assets/240.webp" alt="Faded 405">
-                    <div class="card-overlay">
-                        <a href="./albums/faded-405.html" class="card-link">Listen Now</a>
-                    </div>
-                </div>
+            <a href="./albums/faded-405/new-foundations.html" class="music-card">
+                <div class="card-image"><img src="../assets/240.webp" alt="New Foundations"></div>
                 <div class="card-content">
-                    <a href="./albums/faded-405.html"><h3>Faded 405</h3></a>
+                    <h3>New Foundations</h3>
                     <p class="artist">DoubleU</p>
-                    <p class="release-date">Released: February 27, 2026</p>
-                    <p style="font-size: 0.75rem; margin-top: 10px; color: #aaa;">Key Tracks: Finally Free, The Anniversary</p>
+                    <p class="release-date">Feb 27, 2026</p>
                 </div>
-            </div>
+            </a>
+            <a href="./albums/faded-405/finally-free.html" class="music-card">
+                <div class="card-image"><img src="../assets/240.webp" alt="Finally Free"></div>
+                <div class="card-content">
+                    <h3>Finally Free</h3>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">Feb 27, 2026</p>
+                </div>
+            </a>
+            <a href="./albums/faded-405/the-carpenters-hands.html" class="music-card">
+                <div class="card-image"><img src="../assets/240.webp" alt="The Carpenter's Hands"></div>
+                <div class="card-content">
+                    <h3>The Carpenter's Hands</h3>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">Feb 27, 2026</p>
+                </div>
+            </a>
+            <a href="./albums/faded-405/the-anniversary.html" class="music-card">
+                <div class="card-image"><img src="../assets/240.webp" alt="The Anniversary"></div>
+                <div class="card-content">
+                    <h3>The Anniversary</h3>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">Feb 27, 2026</p>
+                </div>
+            </a>
         </div>
 
-        <h2 class="section-title">Singles & Catalog</h2>
+        <h2 class="section-title">Singles & Vault</h2>
         <div class="music-grid">
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/cold-sheets.png" alt="Cold Sheets, Wide Eyes">
-                    <div class="card-overlay"><a href="./singles/cold-sheets-wide-eyes.html" class="card-link">View Release</a></div>
-                </div>
+            <a href="./singles/cold-sheets-wide-eyes.html" class="music-card">
+                <div class="card-image"><img src="../assets/cold-sheets.png" alt="Cold Sheets"></div>
                 <div class="card-content">
-                    <a href="./singles/cold-sheets-wide-eyes.html"><h3>Cold Sheets, Wide Eyes</h3></a>
-                    <p class="artist">DoubleU <span class="label-youtube">— YOUTUBE EXCLUSIVE</span></p>
+                    <h3>Cold Sheets, Wide Eyes</h3>
+                    <p class="artist">DoubleU <span class="label-youtube">YOUTUBE</span></p>
                     <p class="release-date">March 28, 2026</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/fading-out.webp" alt="Fading Out">
-                    <div class="card-overlay"><a href="./singles/fading-out.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/fading-out.html" class="music-card">
+                <div class="card-image"><img src="../assets/fading-out.webp" alt="Fading Out"></div>
                 <div class="card-content">
-                    <a href="./singles/fading-out.html"><h3>Fading Out</h3></a>
+                    <h3>Fading Out</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2026</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/242.webp" alt="Zero Sum">
-                    <div class="card-overlay"><a href="./singles/zero-sum.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/zero-sum.html" class="music-card">
+                <div class="card-image"><img src="../assets/242.webp" alt="Zero Sum"></div>
                 <div class="card-content">
-                    <a href="./singles/zero-sum.html"><h3>Zero Sum</h3></a>
+                    <h3>Zero Sum</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2026</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/243.webp" alt="Found You in the Rainfall">
-                    <div class="card-overlay"><a href="./singles/found-you-in-the-rain-fall.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/found-you-in-the-rain-fall.html" class="music-card">
+                <div class="card-image"><img src="../assets/243.webp" alt="Found You"></div>
                 <div class="card-content">
-                    <a href="./singles/found-you-in-the-rain-fall.html"><h3>Found You In The Rain Fall</h3></a>
+                    <h3>Found You In The Rain Fall</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2025</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/244.webp" alt="Ain't New to Me">
-                    <div class="card-overlay"><a href="./singles/aint-new-to-me.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/aint-new-to-me.html" class="music-card">
+                <div class="card-image"><img src="../assets/244.webp" alt="Ain't New To Me"></div>
                 <div class="card-content">
-                    <a href="./singles/aint-new-to-me.html"><h3>Ain't New To Me</h3></a>
+                    <h3>Ain't New To Me</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2023</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/245.webp" alt="Closer Than Closer">
-                    <div class="card-overlay"><a href="./singles/closer-than-closer.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/closer-than-closer.html" class="music-card">
+                <div class="card-image"><img src="../assets/245.webp" alt="Closer"></div>
                 <div class="card-content">
-                    <a href="./singles/closer-than-closer.html"><h3>Closer Than Closer</h3></a>
+                    <h3>Closer Than Closer</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2023</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/251.webp" alt="Fresh">
-                    <div class="card-overlay"><a href="./singles/fresh.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/fresh.html" class="music-card">
+                <div class="card-image"><img src="../assets/251.webp" alt="Fresh"></div>
                 <div class="card-content">
-                    <a href="./singles/fresh.html"><h3>Fresh</h3></a>
+                    <h3>Fresh</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2022</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/248.webp" alt="Trippin'">
-                    <div class="card-overlay"><a href="./singles/trippin.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/trippin.html" class="music-card">
+                <div class="card-image"><img src="../assets/248.webp" alt="Trippin"></div>
                 <div class="card-content">
-                    <a href="./singles/trippin.html"><h3>Trippin' (ft. Papa Metree)</h3></a>
+                    <h3>Trippin' (ft. Papa Metree)</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2022</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/249.webp" alt="Package Deal">
-                    <div class="card-overlay"><a href="./singles/package-deal.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/package-deal.html" class="music-card">
+                <div class="card-image"><img src="../assets/249.webp" alt="Package Deal"></div>
                 <div class="card-content">
-                    <a href="./singles/package-deal.html"><h3>Package Deal (ft. Papa Metree)</h3></a>
+                    <h3>Package Deal (ft. Papa Metree)</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2021</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/246.webp" alt="Real Life Trauma">
-                    <div class="card-overlay"><a href="./singles/real-life-trauma.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/real-life-trauma.html" class="music-card">
+                <div class="card-image"><img src="../assets/246.webp" alt="Trauma"></div>
                 <div class="card-content">
-                    <a href="./singles/real-life-trauma.html"><h3>Real Life Trauma</h3></a>
+                    <h3>Real Life Trauma</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2021</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="music-card">
-                <div class="card-image">
-                    <img src="../assets/247.webp" alt="Two of Us">
-                    <div class="card-overlay"><a href="./singles/two-of-us.html" class="card-link">View Single</a></div>
-                </div>
+            <a href="./singles/two-of-us.html" class="music-card">
+                <div class="card-image"><img src="../assets/247.webp" alt="Two of Us"></div>
                 <div class="card-content">
-                    <a href="./singles/two-of-us.html"><h3>Two Of Us</h3></a>
+                    <h3>Two Of Us</h3>
                     <p class="artist">DoubleU</p>
                     <p class="release-date">2021</p>
                 </div>
-            </div>
+            </a>
 
         </div>
     </main>
 
-    <footer style="text-align: center; padding: 40px 0; color: #555; border-top: 1px solid #222;">
-        <p>&copy; 2026 DoubleU Official | Soul-Trap & Pain Music</p>
+    <footer>
+        <p>DOUBLEU OFFICIAL — SOUL-TRAP / PAIN MUSIC — OKC 2026</p>
     </footer>
 
-    <script>
-        // Simple Countdown for A Place To Land
-        const releaseDate = new Date("April 24, 2026 00:00:00").getTime();
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = releaseDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("countdown").innerHTML = days + "d " + hours + "h REMAINING";
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "OUT NOW";
-            }
-        }, 1000);
-    </script>
 </body>
 </html>
