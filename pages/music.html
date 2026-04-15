@@ -43,6 +43,46 @@
 
     <div class="nav-scrim" id="navScrim"></div>
 
+    <!-- Hero Section with Countdown -->
+    <section class="music-hero">
+        <div class="hero-background">
+            <div class="hero-glow"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="hero-label">UPCOMING RELEASE</p>
+                    <h1>A Place To Land</h1>
+                    <p class="hero-subtitle">The latest single from DoubleU</p>
+                    <p class="release-date">Releasing April 24, 2026</p>
+                </div>
+                <div class="hero-artwork">
+                    <img src="../assets/248.webp" alt="A Place To Land">
+                </div>
+            </div>
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Page Title -->
     <section class="page-header">
         <div class="container">
@@ -108,7 +148,7 @@
                 <!-- Cold Sheets, Wide Eyes -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/cold-sheets.png" alt="Cold Sheets, Wide Eyes">
+                        <img src="../../assets/248.webp" alt="Cold Sheets, Wide Eyes">
                         <div class="card-overlay">
                             <a href="./singles/cold-sheets-wide-eyes.html" class="card-link">View Single</a>
                         </div>
@@ -128,7 +168,7 @@
                 <!-- Fading Out (02/20/2026) -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/fading-out.webp" alt="Fading Out">
+                        <img src="../../assets/cold-sheets.png" alt="Fading Out">
                         <div class="card-overlay">
                             <a href="./singles/fading-out.html" class="card-link">View Single</a>
                         </div>
@@ -148,7 +188,7 @@
                 <!-- Zero Sum (01/22/26) -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/247.webp" alt="Zero Sum">
+                        <img src="../../assets/fading-out.webp" alt="Zero Sum">
                         <div class="card-overlay">
                             <a href="./singles/zero-sum.html" class="card-link">View Single</a>
                         </div>
@@ -168,7 +208,7 @@
                 <!-- Found You In The Rain Fall -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/245.webp" alt="Found You In The Rain Fall">
+                        <img src="../../assets/247.webp" alt="Found You In The Rain Fall">
                         <div class="card-overlay">
                             <a href="./singles/found-you-in-the-rain-fall.html" class="card-link">View Single</a>
                         </div>
@@ -188,7 +228,7 @@
                 <!-- Aint New To Me -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/244.webp" alt="Aint New To Me">
+                        <img src="../../assets/245.webp" alt="Aint New To Me">
                         <div class="card-overlay">
                             <a href="./singles/aint-new-to-me.html" class="card-link">View Single</a>
                         </div>
@@ -208,7 +248,7 @@
                 <!-- Closer Than Closer -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/251.webp" alt="Closer Than Closer">
+                        <img src="../../assets/244.webp" alt="Closer Than Closer">
                         <div class="card-overlay">
                             <a href="./singles/closer-than-closer.html" class="card-link">View Single</a>
                         </div>
@@ -228,7 +268,7 @@
                 <!-- Fresh -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/243.webp" alt="Fresh">
+                        <img src="../../assets/251.webp" alt="Fresh">
                         <div class="card-overlay">
                             <a href="./singles/fresh.html" class="card-link">View Single</a>
                         </div>
@@ -248,7 +288,7 @@
                 <!-- Trippin' -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/242.webp" alt="Trippin'">
+                        <img src="../../assets/243.webp" alt="Trippin'">
                         <div class="card-overlay">
                             <a href="./singles/trippin.html" class="card-link">View Single</a>
                         </div>
@@ -308,7 +348,7 @@
                 <!-- Two Of Us (10/08/2021) -->
                 <div class="music-card single-card">
                     <div class="card-image">
-                        <img src="../assets/240.webp" alt="Two Of Us">
+                        <img src="../../assets/246.webp" alt="Two Of Us">
                         <div class="card-overlay">
                             <a href="./singles/two-of-us.html" class="card-link">View Single</a>
                         </div>
@@ -341,5 +381,35 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <script>
+        // Countdown timer for A Place To Land release
+        function updateCountdown() {
+            const releaseDate = new Date('April 24, 2026 00:00:00').getTime();
+            const now = new Date().getTime();
+            const gap = releaseDate - now;
+
+            if (gap > 0) {
+                const second = 1000;
+                const minute = second * 60;
+                const hour = minute * 60;
+                const day = hour * 24;
+
+                const days = Math.floor(gap / day);
+                const hours = Math.floor((gap % day) / hour);
+                const minutes = Math.floor((gap % hour) / minute);
+                const seconds = Math.floor((gap % minute) / second);
+
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            } else {
+                document.querySelector('.countdown-container').innerHTML = '<p style="text-align: center; color: #00d4ff; font-size: 18px;">🎵 Now Available!</p>';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>

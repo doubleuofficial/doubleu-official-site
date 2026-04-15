@@ -682,3 +682,206 @@ section {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-secondary);
 }
+
+
+/* ==================== MUSIC PAGE HERO ==================== */
+.music-hero {
+    position: relative;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #050505 0%, #1a1a1a 100%);
+    overflow: hidden;
+    margin-bottom: 60px;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    opacity: 0.3;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+.music-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #00d4ff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+}
+
+.release-date {
+    font-size: 1rem;
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.hero-artwork {
+    position: relative;
+}
+
+.hero-artwork img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.hero-artwork img:hover {
+    transform: scale(1.05);
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.countdown-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.countdown-item {
+    text-align: center;
+}
+
+.countdown-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #00d4ff;
+    line-height: 1;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.countdown-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ==================== RESPONSIVE HERO ==================== */
+@media (max-width: 768px) {
+    .music-hero {
+        padding: 40px 20px;
+        margin-bottom: 40px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .countdown-box {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .countdown-number {
+        font-size: 2rem;
+    }
+}
+
+
+/* ==================== COMING SOON STYLES ==================== */
+.highlight-card.coming-soon {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 255, 136, 0.05) 100%);
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.highlight-card.coming-soon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.coming-soon-label {
+    color: #00d4ff !important;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.coming-soon-date {
+    color: #00ff88;
+    font-size: 14px;
+    margin: 10px 0;
+    font-weight: 500;
+}
