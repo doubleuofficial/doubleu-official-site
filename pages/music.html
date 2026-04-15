@@ -3,413 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Music - DoubleU | Albums and Singles">
-    <title>Music - DoubleU</title>
+    <title>Music | DoubleU Official</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="../index.html">DoubleU</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item">
-                    <a href="../index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="music.html" class="nav-link">Music</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#albums">Albums</a></li>
-                        <li><a href="#singles">Singles</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="nav-scrim" id="navScrim"></div>
-
-    <!-- Hero Section with Countdown -->
-    <section class="music-hero">
-        <div class="hero-background">
-            <div class="hero-glow"></div>
-        </div>
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="hero-label">UPCOMING RELEASE</p>
-                    <h1>A Place To Land</h1>
-                    <p class="hero-subtitle">The latest single from DoubleU</p>
-                    <p class="release-date">Releasing April 24, 2026</p>
-                </div>
-                <div class="hero-artwork">
-                    <img src="../assets/248.webp" alt="A Place To Land">
-                </div>
-            </div>
-            <div class="countdown-container">
-                <div class="countdown-box">
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="days">00</div>
-                        <div class="countdown-label">Days</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="hours">00</div>
-                        <div class="countdown-label">Hours</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="minutes">00</div>
-                        <div class="countdown-label">Minutes</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number" id="seconds">00</div>
-                        <div class="countdown-label">Seconds</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Page Title -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Music</h1>
-            <p>Explore DoubleU's complete discography</p>
-        </div>
-    </section>
-
-    <!-- Albums Section -->
-    <section id="albums" class="music-section albums-section">
-        <div class="container">
-            <h2>Albums</h2>
-            <div class="music-grid">
-                <!-- Faded 405 Album -->
-                <div class="music-card album-card">
-                    <div class="card-image">
-                        <img src="../assets/240.webp" alt="Faded 405">
-                        <div class="card-overlay">
-                            <a href="./albums/faded405/index.html" class="card-link">View Album</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Faded 405</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">February 27, 2026</p>
-                        <p class="track-count">12 Tracks</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Singles Section -->
-    <section id="singles" class="music-section singles-section">
-        <div class="container">
-            <h2>Singles</h2>
-            <div class="music-grid">
-                <!-- A Place To Land (Upcoming 4/24/26) -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../assets/248.webp" alt="A Place To Land">
-                        <div class="card-overlay">
-                            <a href="./singles/a-place-to-land.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>A Place To Land</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">April 24, 2026 (Upcoming)</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cold Sheets, Wide Eyes -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/cold-sheets.png" alt="Cold Sheets, Wide Eyes">
-                        <div class="card-overlay">
-                            <a href="./singles/cold-sheets-wide-eyes.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Cold Sheets, Wide Eyes</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fading Out (02/20/2026) -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/cold-sheets.png" alt="Fading Out">
-                        <div class="card-overlay">
-                            <a href="./singles/fading-out.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Fading Out</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">February 20, 2026</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Zero Sum (01/22/26) -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/fading-out.webp" alt="Zero Sum">
-                        <div class="card-overlay">
-                            <a href="./singles/zero-sum.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Zero Sum</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">January 22, 2026</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Found You In The Rain Fall -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/247.webp" alt="Found You In The Rain Fall">
-                        <div class="card-overlay">
-                            <a href="./singles/found-you-in-the-rain-fall.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Found You In The Rain Fall</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Aint New To Me -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/245.webp" alt="Aint New To Me">
-                        <div class="card-overlay">
-                            <a href="./singles/aint-new-to-me.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Aint New To Me</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Closer Than Closer -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/244.webp" alt="Closer Than Closer">
-                        <div class="card-overlay">
-                            <a href="./singles/closer-than-closer.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Closer Than Closer</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Fresh -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/251.webp" alt="Fresh">
-                        <div class="card-overlay">
-                            <a href="./singles/fresh.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Fresh</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Trippin' -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/243.webp" alt="Trippin'">
-                        <div class="card-overlay">
-                            <a href="./singles/trippin.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Trippin' (feat. Papa Metree)</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Package Deal -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../assets/249.webp" alt="Package Deal">
-                        <div class="card-overlay">
-                            <a href="./singles/package-deal.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Package Deal (ft. Papa Metree)</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Real Life Trauma -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../assets/246.webp" alt="Real Life Trauma">
-                        <div class="card-overlay">
-                            <a href="./singles/real-life-trauma.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Real Life Trauma</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">TBA</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Two Of Us (10/08/2021) -->
-                <div class="music-card single-card">
-                    <div class="card-image">
-                        <img src="../../assets/246.webp" alt="Two Of Us">
-                        <div class="card-overlay">
-                            <a href="./singles/two-of-us.html" class="card-link">View Single</a>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Two Of Us</h3>
-                        <p class="artist">DoubleU</p>
-                        <p class="release-date">October 8, 2021</p>
-                        <div class="streaming-links">
-                            <a href="https://open.spotify.com/artist/doubleu" target="_blank" title="Spotify">Spotify</a>
-                            <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" title="Apple Music">Apple Music</a>
-                            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" title="YouTube">YouTube</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 DoubleU. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://www.youtube.com/@DoubleUOTB" target="_blank">YouTube</a>
-                <a href="https://open.spotify.com/artist/doubleu" target="_blank">Spotify</a>
-                <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank">Apple Music</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../js/main.js"></script>
-    <script>
-        // Countdown timer for A Place To Land release
-        function updateCountdown() {
-            const releaseDate = new Date('April 24, 2026 00:00:00').getTime();
-            const now = new Date().getTime();
-            const gap = releaseDate - now;
-
-            if (gap > 0) {
-                const second = 1000;
-                const minute = second * 60;
-                const hour = minute * 60;
-                const day = hour * 24;
-
-                const days = Math.floor(gap / day);
-                const hours = Math.floor((gap % day) / hour);
-                const minutes = Math.floor((gap % hour) / minute);
-                const seconds = Math.floor((gap % minute) / second);
-
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            } else {
-                document.querySelector('.countdown-container').innerHTML = '<p style="text-align: center; color: #00d4ff; font-size: 18px;">🎵 Now Available!</p>';
-            }
+    <style>
+        /* Cinematic Noir Theme Overrides */
+        root {
+            --neon-cyan: #00f2ff;
+            --neon-orange: #ff8c00;
+            --dark-bg: #0a0a0a;
+            --card-bg: #151515;
         }
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+
+        /* Hero Section */
+        .hero-release {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../assets/240.webp');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid var(--neon-cyan);
+            text-align: center;
+        }
+
+        .hero-release h1 { color: var(--neon-cyan); font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
+        .hero-release h2 { color: var(--neon-orange); margin-bottom: 20px; }
+
+        /* Grid Setup */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .music-card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--neon-cyan);
+        }
+
+        .card-image { position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; }
+
+        .card-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 242, 255, 0.2);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+
+        .music-card:hover .card-overlay { opacity: 1; }
+
+        .card-link {
+            padding: 10px 20px;
+            background: var(--neon-cyan);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-content { padding: 20px; }
+        .card-content h3 { margin: 0; font-size: 1.2rem; }
+        .card-content a { text-decoration: none; color: #fff; transition: color 0.3s; }
+        .card-content a:hover { color: var(--neon-orange); }
+
+        .artist { color: var(--neon-cyan); font-size: 0.9rem; margin: 5px 0; }
+        .release-date { color: #888; font-size: 0.8rem; }
+
+        .section-title {
+            border-left: 5px solid var(--neon-orange);
+            padding-left: 15px;
+            margin-top: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .label-youtube { color: #ff0000; font-weight: bold; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+
+    <header class="hero-release">
+        <div class="container">
+            <p style="letter-spacing: 3px; color: var(--neon-cyan);">UPCOMING RELEASE</p>
+            <h1>A Place To Land</h1>
+            <h2>Coming April 24, 2026</h2>
+            <div id="countdown" style="font-size: 1.5rem; font-weight: bold; color: var(--neon-orange);"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <h2 class="section-title">Latest Album</h2>
+        <div class="music-grid">
+            <div class="music-card album-card">
+                <div class="card-image">
+                    <img src="../assets/240.webp" alt="Faded 405">
+                    <div class="card-overlay">
+                        <a href="./albums/faded-405.html" class="card-link">Listen Now</a>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <a href="./albums/faded-405.html"><h3>Faded 405</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">Released: February 27, 2026</p>
+                    <p style="font-size: 0.75rem; margin-top: 10px; color: #aaa;">Key Tracks: Finally Free, The Anniversary</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Singles & Catalog</h2>
+        <div class="music-grid">
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/cold-sheets.png" alt="Cold Sheets, Wide Eyes">
+                    <div class="card-overlay"><a href="./singles/cold-sheets-wide-eyes.html" class="card-link">View Release</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/cold-sheets-wide-eyes.html"><h3>Cold Sheets, Wide Eyes</h3></a>
+                    <p class="artist">DoubleU <span class="label-youtube">— YOUTUBE EXCLUSIVE</span></p>
+                    <p class="release-date">March 28, 2026</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/fading-out.webp" alt="Fading Out">
+                    <div class="card-overlay"><a href="./singles/fading-out.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/fading-out.html"><h3>Fading Out</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2026</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/242.webp" alt="Zero Sum">
+                    <div class="card-overlay"><a href="./singles/zero-sum.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/zero-sum.html"><h3>Zero Sum</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2026</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/243.webp" alt="Found You in the Rainfall">
+                    <div class="card-overlay"><a href="./singles/found-you-in-the-rain-fall.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/found-you-in-the-rain-fall.html"><h3>Found You In The Rain Fall</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2025</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/244.webp" alt="Ain't New to Me">
+                    <div class="card-overlay"><a href="./singles/aint-new-to-me.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/aint-new-to-me.html"><h3>Ain't New To Me</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2023</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/245.webp" alt="Closer Than Closer">
+                    <div class="card-overlay"><a href="./singles/closer-than-closer.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/closer-than-closer.html"><h3>Closer Than Closer</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2023</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/251.webp" alt="Fresh">
+                    <div class="card-overlay"><a href="./singles/fresh.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/fresh.html"><h3>Fresh</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2022</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/248.webp" alt="Trippin'">
+                    <div class="card-overlay"><a href="./singles/trippin.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/trippin.html"><h3>Trippin' (ft. Papa Metree)</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2022</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/249.webp" alt="Package Deal">
+                    <div class="card-overlay"><a href="./singles/package-deal.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/package-deal.html"><h3>Package Deal (ft. Papa Metree)</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2021</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/246.webp" alt="Real Life Trauma">
+                    <div class="card-overlay"><a href="./singles/real-life-trauma.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/real-life-trauma.html"><h3>Real Life Trauma</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2021</p>
+                </div>
+            </div>
+
+            <div class="music-card">
+                <div class="card-image">
+                    <img src="../assets/247.webp" alt="Two of Us">
+                    <div class="card-overlay"><a href="./singles/two-of-us.html" class="card-link">View Single</a></div>
+                </div>
+                <div class="card-content">
+                    <a href="./singles/two-of-us.html"><h3>Two Of Us</h3></a>
+                    <p class="artist">DoubleU</p>
+                    <p class="release-date">2021</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px 0; color: #555; border-top: 1px solid #222;">
+        <p>&copy; 2026 DoubleU Official | Soul-Trap & Pain Music</p>
+    </footer>
+
+    <script>
+        // Simple Countdown for A Place To Land
+        const releaseDate = new Date("April 24, 2026 00:00:00").getTime();
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = releaseDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h REMAINING";
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "OUT NOW";
+            }
+        }, 1000);
     </script>
 </body>
 </html>
