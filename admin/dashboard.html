@@ -723,10 +723,15 @@
                 <label>Spotify Link</label>
                 <input type="url" id="songSpotifyLink" placeholder="https://open.spotify.com/...">
             </div>
+            <div class="form-group">
+                <label>Apple Music Link</label>
+                <input type="url" id="songAppleMusicLink" placeholder="https://music.apple.com/...">
+            </div>
             <button class="save-btn" onclick="saveSong()">Create Song</button>
         </div>
     </div>
 
+    <script src="../admin_data.js"></script>
     <script>
         // Check authentication
         if (!localStorage.getItem('adminToken')) {
@@ -742,6 +747,56 @@
             document.getElementById('totalAlbums').textContent = albums.length || 1;
             document.getElementById('totalSongs').textContent = songs.length || 21;
             document.getElementById('subscriberCount').textContent = subscribers.length;
+            
+            // Populate tables
+            populateAlbumsTable();
+            populateSongsTable();
+        }
+        
+        // Populate Albums Table
+        function populateAlbumsTable() {
+            const albums = JSON.parse(localStorage.getItem('albums') || '[]');
+            const tbody = document.getElementById('albumsTable');
+            tbody.innerHTML = '';
+            
+            albums.forEach(album => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${album.name}</td>
+                    <td>${album.artist}</td>
+                    <td>${album.releaseDate}</td>
+                    <td>${album.tracks}</td>
+                    <td><span style="color: #00ff88;">${album.status}</span></td>
+                    <td>
+                        <button class="action-btn" onclick="editAlbum(${album.id})">Edit</button>
+                        <button class="action-btn delete" onclick="deleteAlbum(${album.id})">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        // Populate Songs Table
+        function populateSongsTable() {
+            const songs = JSON.parse(localStorage.getItem('songs') || '[]');
+            const tbody = document.getElementById('songsTable');
+            tbody.innerHTML = '';
+            
+            songs.forEach(song => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${song.title}</td>
+                    <td>${song.album}</td>
+                    <td>${song.artist}</td>
+                    <td>${song.duration}</td>
+                    <td>${song.releaseDate}</td>
+                    <td>
+                        <button class="action-btn" onclick="editSong(${song.id})">Edit</button>
+                        <button class="action-btn delete" onclick="deleteSong(${song.id})">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
         }
 
         // Menu navigation
@@ -846,8 +901,10 @@
                 album, 
                 artist, 
                 duration,
-                youtubeLink: document.getElementById('songYoutubeLink').value,
-                spotifyLink: document.getElementById('songSpotifyLink').value
+                releaseDate: document.getElementById('songReleaseDate').value,
+                youtube: document.getElementById('songYoutubeLink').value,
+                spotify: document.getElementById('songSpotifyLink').value,
+                appleMusic: document.getElementById('songAppleMusicLink').value
             });
             localStorage.setItem('songs', JSON.stringify(songs));
             
