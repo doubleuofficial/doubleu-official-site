@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music | DoubleU Official</title>
@@ -12,7 +13,32 @@
             --card-bg: #0f0f0f;
             --noir-overlay: rgba(0, 0, 0, 0.85);
         }
+/* Status Badge Styling */
+.status-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
 
+/* Use your neon orange/cyan palette */
+[data-status="Active"] .status-badge { background: #00FFFF; color: #000; }
+[data-status="Coming Soon"] .status-badge { background: #FF4500; color: #fff; }
+[data-status="Limited"] .status-badge { background: #555; color: #ccc; }
+
+.music-card {
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.2); /* Cyan border */
+}
+
+.music-card:hover {
+    transform: translateY(-5px);
+    border-color: #FF4500; /* Neon Orange hover */
+}
         body {
             background-color: var(--dark-bg);
             /* Cinematic Noir Gradient Background */
@@ -132,145 +158,48 @@
 
     <main class="container">
         
-        <h2 class="section-title">Faded 405 — Album Tracks</h2>
-        <div class="music-grid">
-            <a href="./albums/faded-405/new-foundations.html" class="music-card">
-                <div class="card-image"><img src="../assets/240.webp" alt="New Foundations"></div>
-                <div class="card-content">
-                    <h3>New Foundations</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">Feb 27, 2026</p>
+       <script>
+const SUPABASE_URL = 'https://xpwgzassajhmlqrjyyon.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_fmzJd-HdlmXiJNZHKn8irg_RvMQBLP6';
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function loadCatalog() {
+    const { data: songs, error } = await supabase
+        .from('music_catalog')
+        .select('*')
+        .order('release_date', { ascending: false });
+
+    if (error) {
+        console.error('Error fetching catalog:', error);
+        return;
+    }
+
+    const container = document.getElementById('music-container');
+    container.innerHTML = songs.map(song => `
+        <div class="music-card" data-status="${song.status}">
+            <div class="image-container">
+                <img src="${song.image_path}" alt="${song.title}">
+                <div class="status-badge">${song.status}</div>
+            </div>
+            <div class="song-info">
+                <h3>${song.title}</h3>
+                <p class="description">${song.description || 'Official Release'}</p>
+                <div class="meta">
+                    <span>${song.bpm} BPM</span> | <span>${song.length}</span>
                 </div>
-            </a>
-            <a href="./albums/faded-405/finally-free.html" class="music-card">
-                <div class="card-image"><img src="../assets/240.webp" alt="Finally Free"></div>
-                <div class="card-content">
-                    <h3>Finally Free</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">Feb 27, 2026</p>
+                <div class="links">
+                    ${song.spotify_link ? `<a href="${song.spotify_link}" class="btn spotify">Spotify</a>` : ''}
+                    ${song.apple_link ? `<a href="${song.apple_link}" class="btn apple">Apple</a>` : ''}
+                    ${song.youtube_link ? `<a href="${song.youtube_link}" class="btn youtube">YouTube</a>` : ''}
                 </div>
-            </a>
-            <a href="./albums/faded-405/the-carpenters-hands.html" class="music-card">
-                <div class="card-image"><img src="../assets/240.webp" alt="The Carpenter's Hands"></div>
-                <div class="card-content">
-                    <h3>The Carpenter's Hands</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">Feb 27, 2026</p>
-                </div>
-            </a>
-            <a href="./albums/faded-405/the-anniversary.html" class="music-card">
-                <div class="card-image"><img src="../assets/240.webp" alt="The Anniversary"></div>
-                <div class="card-content">
-                    <h3>The Anniversary</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">Feb 27, 2026</p>
-                </div>
-            </a>
+            </div>
         </div>
+    `).join('');
+}
 
-        <h2 class="section-title">Singles & Vault</h2>
-        <div class="music-grid">
-
-            <a href="./singles/cold-sheets-wide-eyes.html" class="music-card">
-                <div class="card-image"><img src="../assets/cold-sheets.png" alt="Cold Sheets"></div>
-                <div class="card-content">
-                    <h3>Cold Sheets, Wide Eyes</h3>
-                    <p class="artist">DoubleU <span class="label-youtube">YOUTUBE</span></p>
-                    <p class="release-date">March 28, 2026</p>
-                </div>
-            </a>
-
-            <a href="./singles/fading-out.html" class="music-card">
-                <div class="card-image"><img src="../assets/fading-out.webp" alt="Fading Out"></div>
-                <div class="card-content">
-                    <h3>Fading Out</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2026</p>
-                </div>
-            </a>
-
-            <a href="./singles/zero-sum.html" class="music-card">
-                <div class="card-image"><img src="../assets/242.webp" alt="Zero Sum"></div>
-                <div class="card-content">
-                    <h3>Zero Sum</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2026</p>
-                </div>
-            </a>
-
-            <a href="./singles/found-you-in-the-rain-fall.html" class="music-card">
-                <div class="card-image"><img src="../assets/243.webp" alt="Found You"></div>
-                <div class="card-content">
-                    <h3>Found You In The Rain Fall</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2025</p>
-                </div>
-            </a>
-
-            <a href="./singles/aint-new-to-me.html" class="music-card">
-                <div class="card-image"><img src="../assets/244.webp" alt="Ain't New To Me"></div>
-                <div class="card-content">
-                    <h3>Ain't New To Me</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2023</p>
-                </div>
-            </a>
-
-            <a href="./singles/closer-than-closer.html" class="music-card">
-                <div class="card-image"><img src="../assets/245.webp" alt="Closer"></div>
-                <div class="card-content">
-                    <h3>Closer Than Closer</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2023</p>
-                </div>
-            </a>
-
-            <a href="./singles/fresh.html" class="music-card">
-                <div class="card-image"><img src="../assets/251.webp" alt="Fresh"></div>
-                <div class="card-content">
-                    <h3>Fresh</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2022</p>
-                </div>
-            </a>
-
-            <a href="./singles/trippin.html" class="music-card">
-                <div class="card-image"><img src="../assets/248.webp" alt="Trippin"></div>
-                <div class="card-content">
-                    <h3>Trippin' (ft. Papa Metree)</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2022</p>
-                </div>
-            </a>
-
-            <a href="./singles/package-deal.html" class="music-card">
-                <div class="card-image"><img src="../assets/249.webp" alt="Package Deal"></div>
-                <div class="card-content">
-                    <h3>Package Deal (ft. Papa Metree)</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2021</p>
-                </div>
-            </a>
-
-            <a href="./singles/real-life-trauma.html" class="music-card">
-                <div class="card-image"><img src="../assets/246.webp" alt="Trauma"></div>
-                <div class="card-content">
-                    <h3>Real Life Trauma</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2021</p>
-                </div>
-            </a>
-
-            <a href="./singles/two-of-us.html" class="music-card">
-                <div class="card-image"><img src="../assets/247.webp" alt="Two of Us"></div>
-                <div class="card-content">
-                    <h3>Two Of Us</h3>
-                    <p class="artist">DoubleU</p>
-                    <p class="release-date">2021</p>
-                </div>
-            </a>
-
-        </div>
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', loadCatalog);
+</script>
     </main>
 
     <footer>
