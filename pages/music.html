@@ -158,60 +158,61 @@
   <main class="container">
     <h2 class="section-title">Music Catalog</h2>
     <div id="music-grid" class="music-grid"></div>
+<script>
+    async function loadCatalog() {
+    const { data: songs, error } = await supabaseClient
+        .from('music_catalog')
+        .select('*')
+        .order('release_date', { ascending: false });
 
-    <script>
-        // Use the credentials you provided
-        const SUPABASE_URL = 'https://xpwgzassajhmlqrjyyon.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_fmzJd-HdlmXiJNZHKn8irg_RvMQBLP6';
-        
-        // Correct initialization for the browser client
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    if (error) {
+        console.error('Error fetching catalog:', error);
+        return;
+    }
 
-        async function loadCatalog() {
-            const { data: songs, error } = await supabaseClient
-                .from('music_catalog')
-                .select('*')
-                .order('release_date', { ascending: false });
-
-            if (error) {
-                console.error('Error fetching catalog:', error);
-                return;
+    const grid = document.getElementById('music-grid');
+    
+    // 1. Filter for a single "Album" entry and all "Singles"
+    // This prevents every track from 'Faded 405' from appearing as a separate card
+    const albumProcessed = new Set();
+    const displayList = songs.filter(item => {
+        if (item.track_type === 'Album Track') {
+            if (!albumProcessed.has(item.album_name)) {
+                albumProcessed.add(item.album_name);
+                return true; // Keep only the first instance of the album
             }
-
-            // 1. Update the Hero section with the latest "Coming Soon" track
-            const upcoming = songs.find(s => s.status === 'Coming Soon');
-            if (upcoming) {
-                document.querySelector('.hero-release h1').innerText = upcoming.title;
-                document.getElementById('countdown').innerText = new Date(upcoming.release_date).toLocaleDateString('en-US', {
-                    month: 'long', day: 'numeric', year: 'numeric'
-                });
-            }
-
-            // 2. Render the Grid
-            const grid = document.getElementById('music-grid');
-            grid.innerHTML = songs.map(song => `
-                <a href="${song.track_page_path}" class="music-card" data-status="${song.status}">
-                    <div class="card-image">
-                        <img src="${song.image_path}" alt="${song.title}">
-                        <div class="status-badge">${song.status}</div>
-                    </div>
-                    <div class="card-content">
-                        <p class="release-date">${new Date(song.release_date).getFullYear()}</p>
-                        <h3>${song.title}</h3>
-                        <p class="artist">DoubleU</p>
-                        <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">
-                            ${song.description || 'Official Soul-Trap Release'}
-                        </p>
-                        <div style="font-size: 0.75rem; color: var(--neon-cyan); letter-spacing: 1px;">
-                            ${song.bpm} BPM | ${song.length}
-                        </div>
-                    </div>
-                </a>
-            `).join('');
+            return false; // Skip the rest of the album tracks
         }
+        return true; // Keep all singles/beats
+    });
 
-        document.addEventListener('DOMContentLoaded', loadCatalog);
-    </script>
+    grid.innerHTML = displayList.map(item => {
+        const isAlbum = item.track_type === 'Album Track';
+        const displayTitle = isAlbum ? item.album_name : item.title;
+        const displayLink = isAlbum ? item.album_page_path : item.track_page_path;
+        
+        return `
+            <a href="${displayLink}" class="music-card" data-status="${item.status}">
+                <div class="card-image">
+                    <img src="${item.image_path}" alt="${displayTitle}">
+                    <div class="status-badge">${isAlbum ? 'Album' : item.status}</div>
+                </div>
+                <div class="card-content">
+                    <p class="release-date">${new Date(item.release_date).getFullYear()}</p>
+                    <h3>${displayTitle}</h3>
+                    <p class="artist">DoubleU</p>
+                    <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">
+                        ${isAlbum ? 'Full Project' : (item.description || 'Official Release')}
+                    </p>
+                    <div style="font-size: 0.75rem; color: var(--neon-cyan); letter-spacing: 1px;">
+                        ${isAlbum ? 'Full LP' : `${item.bpm} BPM | ${item.length}`}
+                    </div>
+                </div>
+            </a>
+        `;
+    }).join('');
+    }   
+</script>
 </main>
     <footer>
         <p>DOUBLEU OFFICIAL — SOUL-TRAP / PAIN MUSIC — OKC 2026</p>
