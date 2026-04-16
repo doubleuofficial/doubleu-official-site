@@ -155,53 +155,64 @@
             <h2 id="countdown" style="color: var(--neon-orange);">APRIL 24, 2026</h2>
         </div>
     </header>
+  <main class="container">
+    <h2 class="section-title">Music Catalog</h2>
+    <div id="music-grid" class="music-grid"></div>
 
-    <main class="container">
+    <script>
+        // Use the credentials you provided
+        const SUPABASE_URL = 'https://xpwgzassajhmlqrjyyon.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_fmzJd-HdlmXiJNZHKn8irg_RvMQBLP6';
         
-       <script>
-const SUPABASE_URL = 'https://xpwgzassajhmlqrjyyon.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_fmzJd-HdlmXiJNZHKn8irg_RvMQBLP6';
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        // Correct initialization for the browser client
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-async function loadCatalog() {
-    const { data: songs, error } = await supabase
-        .from('music_catalog')
-        .select('*')
-        .order('release_date', { ascending: false });
+        async function loadCatalog() {
+            const { data: songs, error } = await supabaseClient
+                .from('music_catalog')
+                .select('*')
+                .order('release_date', { ascending: false });
 
-    if (error) {
-        console.error('Error fetching catalog:', error);
-        return;
-    }
+            if (error) {
+                console.error('Error fetching catalog:', error);
+                return;
+            }
 
-    const container = document.getElementById('music-container');
-    container.innerHTML = songs.map(song => `
-        <div class="music-card" data-status="${song.status}">
-            <div class="image-container">
-                <img src="${song.image_path}" alt="${song.title}">
-                <div class="status-badge">${song.status}</div>
-            </div>
-            <div class="song-info">
-                <h3>${song.title}</h3>
-                <p class="description">${song.description || 'Official Release'}</p>
-                <div class="meta">
-                    <span>${song.bpm} BPM</span> | <span>${song.length}</span>
-                </div>
-                <div class="links">
-                    ${song.spotify_link ? `<a href="${song.spotify_link}" class="btn spotify">Spotify</a>` : ''}
-                    ${song.apple_link ? `<a href="${song.apple_link}" class="btn apple">Apple</a>` : ''}
-                    ${song.youtube_link ? `<a href="${song.youtube_link}" class="btn youtube">YouTube</a>` : ''}
-                </div>
-            </div>
-        </div>
-    `).join('');
-}
+            // 1. Update the Hero section with the latest "Coming Soon" track
+            const upcoming = songs.find(s => s.status === 'Coming Soon');
+            if (upcoming) {
+                document.querySelector('.hero-release h1').innerText = upcoming.title;
+                document.getElementById('countdown').innerText = new Date(upcoming.release_date).toLocaleDateString('en-US', {
+                    month: 'long', day: 'numeric', year: 'numeric'
+                });
+            }
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', loadCatalog);
-</script>
-    </main>
+            // 2. Render the Grid
+            const grid = document.getElementById('music-grid');
+            grid.innerHTML = songs.map(song => `
+                <a href="${song.track_page_path}" class="music-card" data-status="${song.status}">
+                    <div class="card-image">
+                        <img src="${song.image_path}" alt="${song.title}">
+                        <div class="status-badge">${song.status}</div>
+                    </div>
+                    <div class="card-content">
+                        <p class="release-date">${new Date(song.release_date).getFullYear()}</p>
+                        <h3>${song.title}</h3>
+                        <p class="artist">DoubleU</p>
+                        <p style="font-size: 0.8rem; color: #888; margin-bottom: 15px;">
+                            ${song.description || 'Official Soul-Trap Release'}
+                        </p>
+                        <div style="font-size: 0.75rem; color: var(--neon-cyan); letter-spacing: 1px;">
+                            ${song.bpm} BPM | ${song.length}
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+        }
 
+        document.addEventListener('DOMContentLoaded', loadCatalog);
+    </script>
+</main>
     <footer>
         <p>DOUBLEU OFFICIAL — SOUL-TRAP / PAIN MUSIC — OKC 2026</p>
     </footer>
