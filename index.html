@@ -3,155 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU Official</title>
+    <title>DoubleU Official | Enter the 405</title>
+    <meta name="description" content="Official entrance to the DoubleU movement. Experience Oklahoma City Soul-Trap.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --neon-cyan: #00f2ff;
-            --dark-bg: #050505;
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Ambient scanline effect */
-        body::before {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 2;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
-        }
-
-        /* Glitch Logo Animation */
-        .logo-container {
-            position: relative;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .main-w {
-            font-size: 12rem;
-            font-weight: 900;
-            font-style: italic;
-            color: white;
-            line-height: 1;
-            letter-spacing: -10px;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0.05em 0 0 rgba(255,0,0,0.75),
-                        -0.025em -0.05em 0 rgba(0,255,0,0.75),
-                        0.025em 0.05em 0 rgba(0,0,255,0.75);
-            animation: glitch 500ms infinite;
-        }
-
+        :root { --neon-cyan: #00f2ff; --dark-bg: #050505; }
+        body { background-color: var(--dark-bg); margin: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: 'Inter', sans-serif; }
+        .main-w { font-size: 12rem; font-weight: 900; font-style: italic; color: white; letter-spacing: -10px; animation: glitch 500ms infinite; }
+        .terminal-text { margin-top: 2rem; font-family: monospace; font-size: 10px; color: var(--neon-cyan); text-transform: uppercase; letter-spacing: 4px; }
         @keyframes glitch {
-            0% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75), 0.025em 0.05em 0 rgba(0,0,255,0.75); }
-            14% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75), 0.025em 0.05em 0 rgba(0,0,255,0.75); }
-            15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
-            49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
-            50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
-            99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
-            100% { text-shadow: -0.025em 0 0 rgba(255,0,0,0.75), -0.025em -0.025em 0 rgba(0,255,0,0.75), -0.025em -0.05em 0 rgba(0,0,255,0.75); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Dynamic Loading Info */
-        .terminal-text {
-            margin-top: 2rem;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 10px;
-            color: var(--neon-cyan);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            opacity: 0.8;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 10px;
-            background: var(--neon-cyan);
-            animation: blink 0.8s infinite;
-            margin-left: 5px;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .fader {
-            position: fixed;
-            inset: 0;
-            background: black;
-            z-index: 999;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 1s ease;
+            0% { text-shadow: 0.05em 0 0 #ff0000, -0.05em -0.025em 0 #00ff00; }
+            50% { text-shadow: -0.025em 0.05em 0 #ff0000, 0.05em 0 0 #0000ff; }
+            100% { text-shadow: -0.025em 0 0 #ff0000, -0.025em -0.025em 0 #00ff00; }
         }
     </style>
 </head>
 <body>
-
-    <div class="fader" id="fader"></div>
-
-    <div class="logo-container">
-        <h1 class="main-w">W</h1>
-    </div>
-
-    <div class="terminal-text">
-        <span id="loading-msg">Fetching System Data</span><span class="cursor"></span>
-    </div>
-
+    <div class="main-w">W</div>
+    <div class="terminal-text" id="loading-msg">Initializing Identity</div>
     <script>
-        const messages = [
-            "Initializing DoubleU...",
-            "Loading OKC_Roots.sys",
-            "Calibrating Soul_Trap.env",
-            "Identity Confirmed",
-            "Entering the 405"
-        ];
-        
-        const textElement = document.getElementById('loading-msg');
-        let msgIndex = 0;
-
-        // Cycle through terminal messages
-        const messageInterval = setInterval(() => {
-            msgIndex++;
-            if (msgIndex < messages.length) {
-                textElement.innerText = messages[msgIndex];
-            } else {
-                clearInterval(messageInterval);
-                startRedirect();
-            }
-        }, 600);
-
-        function startRedirect() {
-            const fader = document.getElementById('fader');
-            fader.style.opacity = '1';
-            
-            setTimeout(() => {
-                // Adjust this to where your home file is located
-                window.location.href = './pages/home.html'; 
-            }, 1000);
-        }
+        const messages = ["Calibrating Sound", "Identity Confirmed", "Entering the 405"];
+        let i = 0;
+        const msgEl = document.getElementById('loading-msg');
+        const interval = setInterval(() => {
+            if (i < messages.length) { msgEl.innerText = messages[i++]; }
+            else { clearInterval(interval); window.location.href = '/home'; }
+        }, 800);
     </script>
 </body>
 </html>
