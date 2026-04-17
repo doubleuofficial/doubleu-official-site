@@ -3,185 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DoubleU - Official Website. Oklahoma City artist redefining the sound of the modern grind. Home of Faded 405 Album.">
-    <title>DoubleU - Official Website | Faded 405 Album</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>doubleU | Fan Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root { --neon-cyan: #00f2ff; --neon-orange: #ff8c00; --dark-bg: #050505; }
+        body {
+            background-color: var(--dark-bg);
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.08) 0%, transparent 40%),
+                              linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+        }
+        .glass-panel { background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(0, 242, 255, 0.2); }
+        .neon-input { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: white; transition: 0.3s; }
+        .neon-input:focus { border-color: var(--neon-cyan); outline: none; box-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
+        .btn-fan { background: var(--neon-cyan); color: #000; font-weight: 800; letter-spacing: 1px; transition: 0.3s; }
+        .btn-fan:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.5); transform: translateY(-2px); }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-logo">
-                <a href="index.html">DoubleU</a>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="pages/music.html" class="nav-link">Music</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="pages/music.html#albums">Albums</a></li>
-                        <li><a href="pages/music.html#singles">Singles</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/contact.html" class="nav-link">Contact</a>
-                </li>
-            </ul>
+<body class="min-h-screen flex items-center justify-center p-6 text-white">
+    <div class="max-w-md w-full glass-panel rounded-3xl p-10 shadow-2xl">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold tracking-widest uppercase">Fan Access</h1>
+            <p class="text-gray-400 text-xs mt-2 uppercase tracking-tighter">Enter the DoubleU Collective</p>
         </div>
-    </nav>
 
-    <!-- Scrim for mobile menu -->
-    <div class="nav-scrim" id="navScrim"></div>
+        <div id="errorBox" class="hidden mb-4 p-3 bg-red-900/30 border border-red-500 text-red-200 text-xs rounded-lg"></div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">DoubleU</h1>
-            <p class="hero-subtitle">A voice for the soul, whose words are left unheard</p>
-            <div class="countdown" id="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-value" id="days">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="hours">00</span>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="minutes">00</span>
-                    <span class="countdown-label">Minutes</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="seconds">00</span>
-                    <span class="countdown-label">Seconds</span>
-                </div>
+        <form id="loginForm" class="space-y-5">
+            <div>
+                <label class="block text-[10px] font-bold text-[var(--neon-cyan)] uppercase mb-1 tracking-widest">Email</label>
+                <input type="email" id="email" placeholder="fan@example.com" required class="neon-input w-full px-4 py-3 rounded-xl">
             </div>
-            <div class="hero-ctas">
-                    <a href="pages/albums/faded405/index.html" class="btn btn-primary">Listen to Faded 405</a>
-                <a href="pages/contact.html" class="btn btn-secondary">Get in Touch</a>
+            <div>
+                <div class="flex justify-between">
+                    <label class="block text-[10px] font-bold text-[var(--neon-cyan)] uppercase mb-1 tracking-widest">Password</label>
+                    <a href="forgot-password.html" class="text-[10px] font-bold text-[var(--neon-orange)] uppercase hover:underline">Forgot?</a>
+                </div>
+                <input type="password" id="password" placeholder="••••••••" required class="neon-input w-full px-4 py-3 rounded-xl">
             </div>
-        </div>
-    </section>
+            <button type="submit" class="btn-fan w-full py-4 rounded-xl uppercase active:scale-95">Sign In</button>
+        </form>
 
-    <!-- Featured Release -->
-    <section class="featured-release">
-        <div class="container">
-            <h2 class="section-title">Featured Release</h2>
-            <div class="featured-grid">
-                <div class="featured-image">
-                    <img src="assets/240.webp" alt="Faded 405 Album">
-                </div>
-                <div class="featured-info">
-                    <h3>Faded 405</h3>
-                    <p class="release-type">Album • Released April 4, 2026</p>
-                    <p class="release-description">
-                        DoubleU's landmark 2026 album featuring 12 tracks of soul-trap and pain-rap production. From Oklahoma City, redefining the sound of the modern grind. With over 8,000 total plays and a rapidly growing footprint, Faded 405 showcases raw energy, sharp wordplay, and cinematic production.
-                    </p>
-                    <div class="streaming-links">
-                        <a href="https://www.youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM" class="streaming-btn youtube" target="_blank">
-                            <span>YouTube</span>
-                        </a>
-                        <a href="https://open.spotify.com/artist/doubleu" class="streaming-btn spotify" target="_blank">
-                            <span>Spotify</span>
-                        </a>
-                        <a href="https://music.apple.com/us/artist/doubleu/1586705800" class="streaming-btn apple" target="_blank">
-                            <span>Apple Music</span>
-                        </a>
-                    </div>
-                    <a href="pages/album/faded-405.html" class="btn btn-outline">View Project</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        <p class="text-center text-xs text-gray-500 mt-8">
+            NOT IN THE CLUB? <a href="signup.html" class="font-bold text-[var(--neon-orange)] hover:underline">JOIN HERE</a>
+        </p>
+    </div>
 
-    <!-- Music Highlights -->
-    <section class="music-highlights">
-        <div class="container">
-            <h2 class="section-title">Latest Releases</h2>
-            <div class="highlights-grid">
-                <div class="highlight-card coming-soon">
-                    <div class="card-header">
-                        <h4>A Place To Land</h4>
-                        <p class="coming-soon-label">Coming Soon</p>
-                    </div>
-                    <p class="coming-soon-date">April 24, 2026</p>
-                    <div class="streaming-links">
-                        <a href="pages/music.html" class="streaming-btn spotify">View Details</a>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <div class="card-header">
-                        <h4>Cold Sheets, Wide Eyes</h4>
-                        <p>Single</p>
-                    </div>
-                    <div class="streaming-links">
-                        <a href="https://www.youtube.com/@DoubleUOTB" class="streaming-btn youtube" target="_blank">YouTube</a>
-                    </div>
-                </div>
-            </div>
-            <div class="view-all">
-                <a href="pages/music.html" class="btn btn-primary">View All Music</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Preview -->
-    <section class="about-preview">
-        <div class="container">
-            <h2 class="section-title">About DoubleU</h2>
-            <div class="about-content">
-                <p>
-                    DoubleU is a soul-trap and pain-rap artist whose music explores the depths of human emotion. 
-                    With a unique blend of melodic production and raw, introspective lyrics, DoubleU creates music 
-                    that speaks to the struggles and triumphs of the modern soul.
-                </p>
-                <a href="pages/about.html" class="btn btn-outline">Learn More</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>DoubleU</h4>
-                    <p>A voice for the soul, whose words are left unheard.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="pages/music.html">Music</a></li>
-                        <li><a href="pages/about.html">About</a></li>
-                        <li><a href="pages/contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow</h4>
-                    <ul>
-                        <li><a href="https://instagram.com/doubleuofficial" target="_blank">Instagram</a></li>
-                        <li><a href="https://twitter.com/doubleuofficial" target="_blank">Twitter</a></li>
-                        <li><a href="https://soundcloud.com/doubleuofficial" target="_blank">SoundCloud</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 DoubleU. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
+    <script>
+        const _supabase = supabase.createClient('YOUR_URL', 'YOUR_KEY');
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const { error } = await _supabase.auth.signInWithPassword({
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            });
+            if (error) {
+                const box = document.getElementById('errorBox');
+                box.innerText = error.message;
+                box.classList.remove('hidden');
+            } else {
+                window.location.href = 'index.html'; // Or fan-dashboard.html
+            }
+        });
+    </script>
 </body>
 </html>
