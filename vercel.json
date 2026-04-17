@@ -9,3 +9,10 @@
     { "source": "/mediakit", "destination": "/pages/mediakit.html" }
   ]
 }
+ /* Dynamic Album/Track Routes */
+    { "source": "/albums/:album/:track", "destination": "/pages/track-template.html" },
+    
+    /* Dynamic Single Routes */
+    { "source": "/singles/:slug", "destination": "/pages/track-template.html" }
+  ]
+}
