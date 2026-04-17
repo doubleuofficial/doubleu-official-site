@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Admin Portal - DoubleU">
@@ -141,29 +143,50 @@
         </div>
     </div>
 
-    <script>
-        // Demo login - in production, this would authenticate against a backend
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // Demo credentials
-            if (email === 'admin@doubleu.com' && password === 'admin123') {
-                localStorage.setItem('adminToken', 'authenticated');
-                window.location.href = './dashboard.html';
-            } else {
-                const errorMsg = document.getElementById('errorMessage');
-                errorMsg.textContent = 'Invalid email or password';
-                errorMsg.style.display = 'block';
-            }
+<script>
+    // Initialize Supabase
+    const SUPABASE_URL = 'https://xpwgzassajhmlqrjyyon.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_fmzJd-HdlmXiJNZHKn8irg_RvMQBLP6';
+    const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const loginForm = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMessage');
+
+    // Handle Login Submit
+    loginForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Hide error message on new attempt
+        errorMsg.style.display = 'none';
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        // AUTH: Sign in via Supabase
+        const { data, error } = await _supabase.auth.signInWithPassword({
+            email: email,
+            password: password,
         });
 
-        // Check if already logged in
-        if (localStorage.getItem('adminToken')) {
+        if (error) {
+            errorMsg.textContent = error.message; // Shows real error from Supabase
+            errorMsg.style.display = 'block';
+        } else if (data.user) {
+            // Success! Supabase handles the session automatically in the browser
             window.location.href = './dashboard.html';
         }
-    </script>
+    });
+
+    // AUTO-REDIRECT: Check if session already exists
+    async function checkExistingSession() {
+        const { data: { session } } = await _supabase.auth.getSession();
+        if (session) {
+            window.location.href = './dashboard.html';
+        }
+    }
+    
+    checkExistingSession();
+</script>
+
 </body>
 </html>
