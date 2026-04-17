@@ -6,13 +6,8 @@
     { "source": "/about", "destination": "/pages/about.html" },
     { "source": "/contact", "destination": "/pages/contact.html" },
     { "source": "/signup", "destination": "/pages/signup.html" },
-    { "source": "/mediakit", "destination": "/pages/mediakit.html" }
-  ]
-}
- /* Dynamic Album/Track Routes */
+    { "source": "/mediakit", "destination": "/pages/mediakit.html" },
     { "source": "/albums/:album/:track", "destination": "/pages/track-template.html" },
-    
-    /* Dynamic Single Routes */
-    { "source": "/singles/:slug", "destination": "/pages/track-template.html" }
-  ]
-}
+    { "source": "/singles/:slug", "destination": "/pages/track-template.html" },
+]
+ }
