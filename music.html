@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discography | DoubleU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root { --neon-cyan: #00f2ff; --dark-bg: #050505; }
+        body { background-color: var(--dark-bg); color: white; font-family: 'Inter', sans-serif; }
+        .grid-item { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.05); border-radius: 1rem; padding: 1rem; }
+        .grid-item:hover { border-color: var(--neon-cyan); transform: translateY(-5px); background: rgba(255,255,255,0.02); }
+        .img-cap { filter: grayscale(100%); transition: filter 0.5s ease; border-radius: 0.5rem; }
+        .grid-item:hover .img-cap { filter: grayscale(0%); }
+    </style>
+</head>
+<body class="p-8 md:p-20">
+
+    <header class="mb-16">
+        <h1 class="text-5xl font-black italic uppercase tracking-tighter">Music</h1>
+    </header>
+
+    <div id="music-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        </div>
+
+    <script>
+        const _supabaseUrl = 'YOUR_SUPABASE_URL';
+        const _supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
+        const supabase = supabase.createClient(_supabaseUrl, _supabaseKey);
+
+        async function loadMusic() {
+            const { data, error } = await supabase
+                .from('releases')
+                .select('*')
+                .order('release_date', { ascending: false });
+
+            if (error) return console.error(error);
+
+            const grid = document.getElementById('music-grid');
+            
+            grid.innerHTML = data.map(item => `
+                <a href="/${item.path}" class="grid-item group block">
+                    <img src="${item.cover_url}" class="img-cap w-full aspect-square object-cover mb-4">
+                    <h3 class="text-sm font-bold uppercase tracking-widest truncate">${item.title}</h3>
+                    <p class="text-[9px] text-gray-500 uppercase tracking-[3px] mt-1">${item.type}</p>
+                </a>
+            `).join('');
+        }
+
+        loadMusic();
+    </script>
+</body>
+</html>
+

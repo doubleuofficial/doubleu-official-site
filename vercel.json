@@ -1,13 +1,5 @@
 {
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/home", "destination": "/pages/home.html" },
-    { "source": "/music", "destination": "/pages/music.html" },
-    { "source": "/about", "destination": "/pages/about.html" },
-    { "source": "/contact", "destination": "/pages/contact.html" },
-    { "source": "/signup", "destination": "/pages/signup.html" },
-    { "source": "/mediakit", "destination": "/pages/mediakit.html" },
-    { "source": "/albums/:album/:track", "destination": "/pages/track-template.html" },
-    { "source": "/singles/:slug", "destination": "/pages/track-template.html" },
-]
- }
+  "trailingSlash": false
+}
+
