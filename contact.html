@@ -4,22 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | DoubleU</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#050505] text-white">
-    <nav class="p-8"><a href="/home" class="text-xl font-black italic tracking-tighter uppercase">DoubleU</a></nav>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; }
+        .blur-nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); }
+        
+        input, textarea {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
 
-    <main class="max-w-2xl mx-auto px-8 py-20 text-center md:text-left">
-        <h1 class="text-6xl font-black italic uppercase tracking-tighter mb-12">Contact</h1>
-        <form class="space-y-8">
-            <input type="text" placeholder="NAME" class="w-full bg-transparent border-b border-white/10 p-4 text-[10px] tracking-widest focus:border-cyan-400 outline-none transition uppercase">
-            <input type="email" placeholder="EMAIL" class="w-full bg-transparent border-b border-white/10 p-4 text-[10px] tracking-widest focus:border-cyan-400 outline-none transition uppercase">
-            <textarea rows="4" placeholder="MESSAGE" class="w-full bg-transparent border-b border-white/10 p-4 text-[10px] tracking-widest focus:border-cyan-400 outline-none transition uppercase"></textarea>
-            <button class="w-full bg-white text-black py-6 font-black uppercase text-[11px] tracking-[6px] hover:bg-cyan-400 transition">Send Transmission</button>
-        </form>
-        <div class="mt-16 text-[9px] text-gray-600 uppercase tracking-[4px]">
-            Direct: sync@doubleuofficial.online
+        input:focus, textarea:focus {
+            border-color: #06b6d4 !important; /* Cyan-500 */
+            outline: none;
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased pt-32">
+
+    <nav class="fixed top-0 w-full z-50 blur-nav border-b border-white/5 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="/home.html" class="text-2xl font-black italic tracking-tighter hover:text-cyan-400 transition-colors">DOUBLEU</a>
+            
+            <div class="flex gap-6 md:gap-10 text-[10px] uppercase tracking-[0.3em] font-bold">
+                <a href="/home.html" class="hover:text-cyan-400 transition-colors">Home</a>
+                <a href="/music.html" class="hover:text-cyan-400 transition-colors">Music</a>
+                <a href="/about.html" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="/contact.html" class="text-cyan-400">Contact</a>
+            </div>
         </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 pb-24">
+        
+        <div class="grid lg:grid-cols-2 gap-20">
+            
+            <div class="space-y-12">
+                <div>
+                    <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter mb-4">GET IN <span class="text-cyan-500">TOUCH.</span></h1>
+                    <p class="text-gray-400 text-lg">For bookings, features, or press inquiries, reach out through the form or social channels.</p>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="flex items-center gap-6 group">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
+                            <i class="fas fa-envelope text-cyan-500"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">General Inquiries</p>
+                            <p class="text-white">management@doubleuofficial.online</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6 group">
+                        <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-500/10 transition-colors">
+                            <i class="fas fa-map-marker-alt text-cyan-500"></i>
+                        </div>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Based In</p>
+                            <p class="text-white">Oklahoma City, OK (405)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8 border-t border-white/5">
+                    <p class="text-[10px] uppercase tracking-[0.4em] text-gray-600 font-bold mb-6">Social Connections</p>
+                    <div class="flex gap-8 text-2xl text-gray-400">
+                        <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" class="hover:text-white transition-colors"><i class="fab fa-apple"></i></a>
+                        <a href="https://open.spotify.com/artist/78gVqbaxxYAd9aLEZJ49YG" target="_blank" class="hover:text-[#1DB954] transition-colors"><i class="fab fa-spotify"></i></a>
+                        <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" class="hover:text-[#FF0000] transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/[0.02] border border-white/5 p-8 md:p-12 rounded-2xl">
+                <form action="#" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500">Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-lg transition-all" placeholder="John Doe">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500">Email</label>
+                            <input type="email" class="w-full px-4 py-3 rounded-lg transition-all" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500">Subject</label>
+                        <select class="w-full px-4 py-3 rounded-lg transition-all">
+                            <option>Booking Inquiry</option>
+                            <option>Feature Request</option>
+                            <option>Press/Media</option>
+                            <option>General Message</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-[10px] uppercase tracking-widest font-bold text-gray-500">Message</label>
+                        <textarea rows="5" class="w-full px-4 py-3 rounded-lg transition-all" placeholder="How can we work together?"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-500 text-black font-bold py-4 rounded-lg uppercase tracking-[0.2em] text-xs transition-all duration-300">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
     </main>
+
+    <footer class="py-12 bg-[#030303] text-center border-t border-white/5">
+        <p class="text-gray-700 text-[9px] tracking-[0.6em] uppercase font-bold">© 2026 DOUBLEU OFFICIAL</p>
+    </footer>
+
 </body>
 </html>

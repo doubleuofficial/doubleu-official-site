@@ -3,67 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU | Official Site</title>
+    <title>DoubleU | Loading...</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap');
+        
         body {
-            background-color: #050505;
-            color: white;
+            background-color: #000000;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .brand-text {
             font-family: 'Inter', sans-serif;
+            font-style: italic;
+            letter-spacing: -0.05em;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: cinematicEntry 3.5s ease-in-out forwards;
         }
-        .noir-gradient {
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #050505 100%);
+
+        @keyframes cinematicEntry {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+                filter: blur(10px);
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0px);
+            }
+            70% {
+                opacity: 1;
+                transform: scale(1.02);
+                filter: blur(0px);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.05);
+                filter: blur(5px);
+            }
         }
-        /* Custom Neon Glow for DoubleU Brand */
-        .neon-border:hover {
-            box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
-            border-color: rgba(6, 182, 212, 0.5);
+
+        /* Subtle neon pulse */
+        .glow {
+            color: white;
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0);
+            animation: pulseGlow 3.5s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            50% { text-shadow: 0 0 30px rgba(6, 182, 212, 0.4); }
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <header class="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="/assets/hero-bg.webp" alt="DoubleU" class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 noir-gradient"></div>
-        </div>
-        
-        <div class="relative z-10 text-center px-4">
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-2 italic">DOUBLEU</h1>
-            <p class="text-cyan-400 tracking-[0.5em] uppercase text-sm font-light">Melodic Soul-Trap</p>
-        </div>
-    </header>
+    <div class="text-center">
+        <h1 class="brand-text glow text-7xl md:text-9xl font-black italic tracking-tighter">
+            DOUBLEU
+        </h1>
+        <p class="brand-text text-cyan-500 uppercase tracking-[0.8em] text-[10px] mt-4 font-light" style="animation-delay: 0.5s;">
+            Oklahoma City
+        </p>
+    </div>
 
-    <main class="max-w-7xl mx-auto px-6 py-20">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="text-3xl font-bold mb-2">Discography</h2>
-                <div class="h-1 w-12 bg-cyan-500"></div>
-            </div>
-            <p class="text-gray-500 text-sm italic">Latest Releases</p>
-        </div>
-
-        <div id="music-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <div class="animate-pulse text-gray-700">Loading catalog...</div>
-        </div>
-    </main>
-
-    <footer class="border-t border-white/5 py-20 bg-[#080808]">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="flex justify-center gap-8 mb-8 text-2xl text-gray-400">
-                <a href="#" id="footer-spotify" class="hover:text-[#1DB954] transition-colors"><i class="fab fa-spotify"></i></a>
-                <a href="#" id="footer-apple" class="hover:text-[#FC3C44] transition-colors"><i class="fab fa-apple"></i></a>
-                <a href="#" id="footer-youtube" class="hover:text-[#FF0000] transition-colors"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p class="text-gray-600 text-xs tracking-widest uppercase">&copy; 2026 DoubleU. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script src="/engine.js"></script>
+    <script>
+        // Automatic redirection to home page after the animation finishes
+        setTimeout(() => {
+            window.location.href = 'home.html';
+        }, 3800); // Redirect slightly after the 3.5s animation ends
+    </script>
 </body>
 </html>
