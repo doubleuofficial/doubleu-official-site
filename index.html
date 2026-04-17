@@ -3,126 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU Official</title>
+    <title>DoubleU Official | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         :root {
             --neon-cyan: #00f2ff;
+            --neon-orange: #ff8c00;
             --dark-bg: #050505;
         }
 
         body {
             background-color: var(--dark-bg);
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            color: white;
             font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* The W Logo Animation */
-        .loader-logo {
-            width: 80px;
-            height: 80px;
-            border: 2px solid var(--neon-cyan);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 15px;
-            position: relative;
-            transform: rotate(-6deg);
-            animation: pulse-glow 2s infinite alternate ease-in-out;
+        /* Ambient Background */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(255, 140, 0, 0.05) 0%, transparent 40%);
+            z-index: -1;
         }
 
-        .loader-logo span {
-            color: var(--neon-cyan);
-            font-size: 3rem;
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 15vw, 10rem);
+            line-height: 0.8;
             font-weight: 900;
             font-style: italic;
-            text-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        @keyframes pulse-glow {
-            0% {
-                box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
-                border-color: rgba(0, 242, 255, 0.4);
-                transform: rotate(-6deg) scale(1);
-            }
-            100% {
-                box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
-                border-color: var(--neon-cyan);
-                transform: rotate(-6deg) scale(1.05);
-            }
-        }
-
-        /* Loading Bar */
-        .progress-container {
-            position: absolute;
-            bottom: 20%;
-            width: 200px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.05);
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: var(--neon-cyan);
-            box-shadow: 0 0 10px var(--neon-cyan);
-            animation: progress-fill 2.5s forwards cubic-bezier(0.65, 0, 0.35, 1);
-        }
-
-        @keyframes progress-fill {
-            0% { width: 0%; }
-            50% { width: 70%; }
-            100% { width: 100%; }
-        }
-
-        .status-text {
-            position: absolute;
-            bottom: calc(20% - 25px);
-            font-size: 9px;
+            letter-spacing: -6px;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #444;
-            animation: flicker 1.5s infinite;
         }
 
-        @keyframes flicker {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+        /* News Ticker */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            border-y: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+        }
+
+        .ticker-move {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 242, 255, 0.03);
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
 
-    <div class="loader-logo">
-        <span>W</span>
+    <div class="bg-glow"></div>
+
+    <nav class="nav-glass fixed top-0 w-full z-[100] px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-black italic tracking-tighter">DOUBLEU</div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="music.html" class="text-[10px] uppercase tracking-[4px] hover:text-[var(--neon-cyan)] transition-colors">Discography</a>
+            <a href="mediakit.html" class="text-[10px] uppercase tracking-[4px] hover:text-[var(--neon-cyan)] transition-colors">Media Kit</a>
+            <a href="fan/login.html" class="px-5 py-2 border border-[var(--neon-orange)] text-[var(--neon-orange)] text-[9px] uppercase tracking-widest font-bold hover:bg-[var(--neon-orange)] hover:text-black transition-all">Fan Club</a>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+        <div class="text-center">
+            <span class="block text-[var(--neon-cyan)] font-bold uppercase tracking-[10px] text-[11px] mb-4">Now Streaming Globally</span>
+            <h1 class="hero-title mb-12">Faded 405</h1>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center">
+                <a href="albums/faded405/index.html" class="px-12 py-5 bg-white text-black font-black uppercase tracking-widest text-sm hover:bg-[var(--neon-cyan)] transition-all duration-500">
+                    Stream Album
+                </a>
+                <a href="#connect" class="px-12 py-5 border border-white/10 hover:border-white font-black uppercase tracking-widest text-sm transition-all duration-500">
+                    Connect
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="ticker-wrap mb-24">
+        <div class="ticker-move">
+            <span class="text-4xl font-black uppercase italic mx-10 text-white/10">OKC 2026 // FADED 405 OUT NOW // DOUBLEU COLLECTIVE // SOUL TRAP REDEFINED // NO PAIN NO GAIN // </span>
+            <span class="text-4xl font-black uppercase italic mx-10 text-white/10">OKC 2026 // FADED 405 OUT NOW // DOUBLEU COLLECTIVE // SOUL TRAP REDEFINED // NO PAIN NO GAIN // </span>
+        </div>
     </div>
 
-    <div class="progress-container">
-        <div class="progress-bar"></div>
-    </div>
+    <section id="connect" class="container mx-auto px-6 pb-40">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-10 rounded-3xl">
+                <h4 class="text-[10px] font-bold text-[var(--neon-cyan)] uppercase tracking-[5px] mb-8">Listen</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="https://music.apple.com" target="_blank" class="p-4 border border-white/5 rounded-xl flex flex-col items-center group hover:border-[#fa243c] transition-all">
+                        <span class="text-[9px] font-bold uppercase tracking-widest group-hover:text-[#fa243c]">Apple Music</span>
+                    </a>
+                    <a href="https://spotify.com" target="_blank" class="p-4 border border-white/5 rounded-xl flex flex-col items-center group hover:border-[#1DB954] transition-all">
+                        <span class="text-[9px] font-bold uppercase tracking-widest group-hover:text-[#1DB954]">Spotify</span>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" class="p-4 border border-white/5 rounded-xl flex flex-col items-center group hover:border-[#FF0000] transition-all">
+                        <span class="text-[9px] font-bold uppercase tracking-widest group-hover:text-[#FF0000]">YouTube</span>
+                    </a>
+                    <a href="https://tiktok.com" target="_blank" class="p-4 border border-white/5 rounded-xl flex flex-col items-center group hover:border-[var(--neon-cyan)] transition-all">
+                        <span class="text-[9px] font-bold uppercase tracking-widest group-hover:text-[var(--neon-cyan)]">TikTok</span>
+                    </a>
+                </div>
+            </div>
 
-    <div class="status-text">Initializing Identity</div>
+            <div class="glass-card p-10 rounded-3xl">
+                <h4 class="text-[10px] font-bold text-[var(--neon-orange)] uppercase tracking-[5px] mb-8">Follow</h4>
+                <div class="flex flex-col gap-6">
+                    <a href="#" class="flex justify-between items-center group/link">
+                        <span class="text-sm font-bold uppercase tracking-widest group-hover/link:text-[var(--neon-cyan)] transition-colors">TikTok</span>
+                        <span class="text-xs text-gray-600">→</span>
+                    </a>
+                    <a href="#" class="flex justify-between items-center group/link">
+                        <span class="text-sm font-bold uppercase tracking-widest group-hover/link:text-[var(--neon-cyan)] transition-colors">Instagram</span>
+                        <span class="text-xs text-gray-600">→</span>
+                    </a>
+                    <a href="#" class="flex justify-between items-center group/link">
+                        <span class="text-sm font-bold uppercase tracking-widest group-hover/link:text-[var(--neon-cyan)] transition-colors">X / Twitter</span>
+                        <span class="text-xs text-gray-600">→</span>
+                    </a>
+                    <a href="#" class="flex justify-between items-center group/link">
+                        <span class="text-sm font-bold uppercase tracking-widest group-hover/link:text-[var(--neon-cyan)] transition-colors">Facebook</span>
+                        <span class="text-xs text-gray-600">→</span>
+                    </a>
+                </div>
+            </div>
 
-    <script>
-        // Redirect to home.html after the animation finishes
-        window.addEventListener('load', () => {
-            // Give the user a moment to see the full progress bar (2.5 seconds total)
-            setTimeout(() => {
-                // Fade out effect (optional)
-                document.body.style.transition = "opacity 0.5s ease";
-                document.body.style.opacity = "0";
-                
-                setTimeout(() => {
-                    window.location.href = './home.html';
-                }, 500);
-            }, 2600); 
-        });
-    </script>
+            <div class="glass-card p-10 rounded-3xl border-[var(--neon-cyan)]/20">
+                <h4 class="text-[10px] font-bold text-white uppercase tracking-[5px] mb-6">Contact</h4>
+                <p class="text-xs text-gray-500 uppercase leading-relaxed mb-8">
+                    For sync licensing, features, and business inquiries:
+                </p>
+                <a href="mailto:sync@doubleuofficial.online" class="block group mb-10">
+                    <p class="text-[var(--neon-cyan)] font-black text-sm break-all group-hover:drop-shadow-[0_0_10px_rgba(0,242,255,0.5)] transition-all">
+                        sync@doubleuofficial.online
+                    </p>
+                </a>
+                <div class="pt-6 border-t border-white/5">
+                    <a href="mediakit.html" class="text-[10px] font-bold text-gray-400 hover:text-white uppercase tracking-widest transition-colors">
+                        Media Kit EPK →
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="p-20 text-center border-t border-white/5 bg-black">
+        <div class="text-5xl font-black italic mb-10 tracking-tighter">DOUBLEU</div>
+        <p class="text-[10px] text-gray-800 uppercase tracking-[15px]">Oklahoma City 2026</p>
+    </footer>
+
 </body>
 </html>
