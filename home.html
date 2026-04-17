@@ -3,109 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU | Home</title>
-    
+    <title>DoubleU | Official</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; }
-        
-        .hero-vignette {
-            background: radial-gradient(circle, rgba(0,0,0,0) 0%, #050505 100%);
-        }
-        
-        .nav-blur {
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(15px);
-        }
-
-        /* Cinematic Grain Effect */
-        .grain::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-            filter: brightness(100%) contrast(150%);
-            pointer-events: none;
-            opacity: 0.05;
-        }
-    </style>
 </head>
-<body class="antialiased grain">
+<body class="bg-[#050505] text-white selection:bg-cyan-500/30">
 
-    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5 py-6">
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-6">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <a href="/home.html" class="text-2xl font-black italic tracking-tighter">DOUBLEU</a>
-            
-            <div class="flex gap-10 text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">
-                <a href="/music.html" class="hover:text-cyan-400 transition-colors">Music</a>
-                <a href="/about.html" class="hover:text-cyan-400 transition-colors">About</a>
-                <a href="/contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
+            <div class="flex gap-8 text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">
+                <a href="/music.html" class="hover:text-cyan-400">Music</a>
+                <a href="/about.html" class="hover:text-cyan-400">About</a>
+                <a href="#contact" class="hover:text-cyan-400">Contact</a>
             </div>
         </div>
     </nav>
 
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <img src="/assets/hero-main.webp" alt="DoubleU Artist" class="w-full h-full object-cover opacity-40 scale-110">
-            <div class="absolute inset-0 hero-vignette"></div>
-        </div>
-
-        <div class="relative z-10 text-center px-6">
-            <h1 class="text-8xl md:text-[12rem] font-black italic tracking-tighter leading-none opacity-90 mb-4">
-                DOUBLEU
-            </h1>
-            <div class="flex items-center justify-center gap-6">
-                <div class="h-[1px] w-12 bg-cyan-500/50"></div>
-                <p class="text-cyan-400 tracking-[0.6em] uppercase text-xs font-light">Oklahoma City Soul-Trap</p>
-                <div class="h-[1px] w-12 bg-cyan-500/50"></div>
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative rounded-3xl overflow-hidden bg-white/5 border border-white/10 p-12 flex flex-col md:flex-row items-center gap-12">
+                <div class="absolute top-6 left-6 bg-cyan-600 text-[9px] font-bold uppercase tracking-[0.3em] px-4 py-1 rounded-full">Upcoming Release</div>
+                <img src="/assets/faded-405-cover.webp" class="w-64 h-64 rounded-lg shadow-2xl">
+                <div class="space-y-4">
+                    <h1 class="text-6xl font-black italic tracking-tighter">FADED 405</h1>
+                    <p class="text-gray-400 tracking-widest text-sm uppercase">Coming April 24, 2026</p>
+                    <div class="flex gap-4 pt-4">
+                        <a href="#" class="px-8 py-3 bg-white text-black font-bold rounded-full text-xs uppercase tracking-widest">Pre-Save</a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-20">
-            <i class="fas fa-chevron-down text-xl"></i>
         </div>
     </section>
 
-    <main class="max-w-7xl mx-auto px-6 py-32">
-        <div class="mb-16">
-            <h2 class="text-4xl font-black italic mb-2">LATEST PROJECTS</h2>
-            <p class="text-gray-500 text-xs uppercase tracking-widest">Selected Discography</p>
-        </div>
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="text-xs uppercase tracking-[0.5em] text-gray-600 mb-12">Most Streamed</h2>
+        <div id="most-streamed-grid" class="grid grid-cols-1 md:grid-cols-3 gap-12"></div>
+    </section>
 
-        <div id="music-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div class="animate-pulse space-y-4">
-                <div class="aspect-square bg-white/5 rounded-lg"></div>
-                <div class="h-4 w-1/2 bg-white/5 rounded"></div>
-            </div>
-            <div class="animate-pulse space-y-4 hidden sm:block">
-                <div class="aspect-square bg-white/5 rounded-lg"></div>
-                <div class="h-4 w-1/2 bg-white/5 rounded"></div>
+    <section class="bg-white/5 py-24 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-center space-y-12">
+            <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500">Available Everywhere</h2>
+            <div class="flex flex-wrap justify-center gap-12 text-4xl text-gray-400">
+                <a href="https://open.spotify.com/artist/78gVqbaxxYAd9aLEZJ49YG" class="hover:text-[#1DB954]"><i class="fab fa-spotify"></i></a>
+                <a href="https://music.apple.com/us/artist/doubleu/1586705800" class="hover:text-[#FC3C44]"><i class="fab fa-apple"></i></a>
+                <a href="https://www.youtube.com/@DoubleUOTB" class="hover:text-[#FF0000]"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
+    </section>
 
-        <div class="mt-20 text-center">
-            <a href="/music.html" class="inline-block border border-white/10 px-12 py-4 rounded-full text-[10px] uppercase tracking-[0.4em] font-bold hover:bg-white hover:text-black transition-all duration-500">
-                View All Music
-            </a>
+    <section id="contact" class="max-w-3xl mx-auto px-6 py-32">
+        <div class="text-center mb-16 space-y-4">
+            <h2 class="text-5xl font-black italic tracking-tighter">CONTACT</h2>
+            <p class="text-gray-500 text-xs uppercase tracking-widest">For Bookings & Features</p>
         </div>
-    </main>
-
-    <footer class="border-t border-white/5 py-24 bg-[#030303]">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
-            <div class="flex gap-12 text-2xl text-gray-600 mb-12">
-                <a href="https://open.spotify.com/artist/78gVqbaxxYAd9aLEZJ49YG" target="_blank" class="hover:text-[#1DB954] transition-colors"><i class="fab fa-spotify"></i></a>
-                <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" class="hover:text-[#FC3C44] transition-colors"><i class="fab fa-apple"></i></a>
-                <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" class="hover:text-[#FF0000] transition-colors"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p class="text-gray-800 text-[10px] tracking-[0.8em] uppercase font-bold">© 2026 DoubleU • Faded 405</p>
-        </div>
-    </footer>
+        <form class="space-y-6">
+            <input type="text" placeholder="NAME" class="w-full bg-white/5 border border-white/10 p-4 rounded-lg text-xs tracking-widest outline-none focus:border-cyan-500">
+            <input type="email" placeholder="EMAIL" class="w-full bg-white/5 border border-white/10 p-4 rounded-lg text-xs tracking-widest outline-none focus:border-cyan-500">
+            <textarea rows="5" placeholder="MESSAGE" class="w-full bg-white/5 border border-white/10 p-4 rounded-lg text-xs tracking-widest outline-none focus:border-cyan-500"></textarea>
+            <button class="w-full bg-white text-black py-4 font-black uppercase tracking-[0.3em] text-[10px] hover:bg-cyan-500 transition-colors">Send Inquiry</button>
+        </form>
+    </section>
 
     <script src="/engine.js"></script>
 </body>
