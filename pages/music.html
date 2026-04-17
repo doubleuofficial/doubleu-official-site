@@ -3,185 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music | DoubleU Official</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <title>DoubleU | Media Kit (EPK)</title>
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --neon-cyan: #00f2ff;
-            --neon-orange: #ff8c00;
-            --dark-bg: #050505;
-            --card-bg: #0f0f0f;
-            --noir-overlay: rgba(0, 0, 0, 0.85);
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(255, 140, 0, 0.05) 0%, transparent 50%),
-                linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
-            background-attachment: fixed;
-            color: #ffffff;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            margin: 0;
-            line-height: 1.6;
-        }
-
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-
-        /* Hero / Upcoming Release */
-        .hero-release {
-            position: relative;
-            padding: 120px 0;
-            text-align: center;
-            background: linear-gradient(var(--noir-overlay), var(--noir-overlay)), url('/assets/240.webp');
-            background-size: cover;
-            background-position: center;
-            border-bottom: 2px solid var(--neon-cyan);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
-        }
-
-        .hero-release h1 { font-size: 4rem; color: var(--neon-cyan); text-transform: uppercase; margin: 10px 0; letter-spacing: 6px; text-shadow: 0 0 15px var(--neon-cyan); }
-        .hero-release h2 { color: var(--neon-orange); font-weight: 300; letter-spacing: 3px; text-transform: uppercase; }
-
-        /* Grid Styling */
-        .section-title {
-            margin: 80px 0 40px;
-            font-size: 1.8rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            border-left: 5px solid var(--neon-orange);
-            padding-left: 20px;
-        }
-
-        .music-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 40px;
-            padding-bottom: 100px;
-        }
-
-        /* Music Card Styles */
-        .music-card {
-            background: var(--card-bg);
-            border: 1px solid #1a1a1a;
-            position: relative;
-            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-            text-decoration: none; 
-            display: block; 
-            color: inherit;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .music-card:hover {
-            transform: scale(1.03);
-            border-color: var(--neon-cyan);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 242, 255, 0.15);
-        }
-
-        .card-image { width: 100%; aspect-ratio: 1/1; position: relative; overflow: hidden; }
-        .card-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); transition: 0.5s; }
-        .music-card:hover .card-image img { filter: grayscale(0%); }
-
-        .status-badge {
-            position: absolute; top: 10px; right: 10px; padding: 5px 10px;
-            border-radius: 4px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase;
-            z-index: 2;
-        }
-        [data-status="Active"] .status-badge { background: var(--neon-cyan); color: #000; }
-        [data-status="Coming Soon"] .status-badge { background: var(--neon-orange); color: #fff; }
-        [data-status="Album"] .status-badge { background: #fff; color: #000; }
-
-        .card-content { padding: 25px; background: linear-gradient(180deg, #111, #0a0a0a); }
-        .card-content h3 { margin: 0; font-size: 1.2rem; letter-spacing: 1.5px; text-transform: uppercase; }
-        .artist { color: var(--neon-cyan); font-size: 0.9rem; margin: 5px 0; font-weight: bold; }
-        .meta { color: #555; font-size: 0.75rem; text-transform: uppercase; margin-top: 10px; }
-
-        footer { text-align: center; padding: 60px 0; background: #000; color: #444; font-size: 0.8rem; letter-spacing: 2px; }
+        :root { --neon-cyan: #00f2ff; --dark-bg: #050505; }
+        body { background-color: var(--dark-bg); color: white; font-family: 'Inter', sans-serif; }
+        .section-header { writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 10px; font-size: 0.75rem; color: #333; }
     </style>
 </head>
-<body>
-
-    <header class="hero-release">
-        <div class="container">
-            <h2 style="font-size: 0.9rem; color: #fff;">LATEST PROJECT</h2>
-            <h1 id="hero-title">FADED 405</h1>
-            <h2 id="hero-date">AVAILABLE NOW</h2>
+<body class="p-6 md:p-20">
+    <header class="max-w-6xl mx-auto mb-32 flex justify-between items-end">
+        <div>
+            <h4 class="text-[var(--neon-cyan)] uppercase tracking-[10px] text-xs font-bold mb-4 italic">Press Kit</h4>
+            <h1 class="text-7xl md:text-9xl font-black italic uppercase leading-none">DoubleU</h1>
         </div>
+        <div class="text-right text-xs uppercase tracking-widest text-gray-600">2026 Asset Portal</div>
     </header>
 
-    <main class="container">
-        <h2 class="section-title">Discography</h2>
-        <div id="music-grid" class="music-grid">
+    <main class="max-w-6xl mx-auto space-y-40">
+        <section class="flex gap-12">
+            <div class="section-header">Biography</div>
+            <p class="text-2xl md:text-4xl font-light leading-snug text-gray-300 italic">
+                The bridge between <span class="text-white font-bold">Pain Music</span> and cinematic production. Born and bred in <span class="text-[var(--neon-cyan)] font-bold">OKC</span>.
+            </p>
+        </section>
+
+        <section class="flex gap-12">
+            <div class="section-header">Resources</div>
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <a href="mailto:sync@doubleuofficial.online" class="p-10 border border-white/5 rounded-2xl hover:border-[var(--neon-cyan)] transition-all">
+                    <h5 class="text-[10px] uppercase tracking-widest mb-2 text-gray-500">Booking</h5>
+                    <span class="text-xl font-bold">sync@doubleuofficial.online</span>
+                </a>
+                <div class="p-10 border border-white/5 rounded-2xl">
+                    <h5 class="text-[10px] uppercase tracking-widest mb-2 text-gray-500">Asset Pack</h5>
+                    <span class="text-xl font-bold">Download High-Res Photos (ZIP)</span>
+                </div>
             </div>
+        </section>
     </main>
-
-    <footer>
-        <p>DOUBLEU OFFICIAL — OKC 2026</p>
-    </footer>
-
-    <script>
-        const SUPABASE_URL = 'https://xpwgzassajhmlqrjyyon.supabase.co';
-        const SUPABASE_KEY = 'sb_publishable_fmzJd-HdlmXiJNZHKn8irg_RvMQBLP6';
-        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-        async function init() {
-            const { data: songs, error } = await _supabase
-                .from('music_catalog')
-                .select('*')
-                .order('release_date', { ascending: false });
-
-            if (error) return console.error(error);
-
-            // 1. Sync Hero to the most recent 'Coming Soon' track
-            const upcoming = songs.find(s => s.status === 'Coming Soon');
-            if (upcoming) {
-                document.getElementById('hero-title').innerText = upcoming.title;
-                document.getElementById('hero-date').innerText = new Date(upcoming.release_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-            }
-
-            // 2. Filter logic: Show "Faded 405" as one card, show singles individually
-            const albumsShown = new Set();
-            const grid = document.getElementById('music-grid');
-
-            grid.innerHTML = songs.filter(item => {
-                if (item.track_type === 'Album Track') {
-                    if (!albumsShown.has(item.album_name)) {
-                        albumsShown.add(item.album_name);
-                        return true;
-                    }
-                    return false;
-                }
-                return true;
-            }).map(item => {
-                const isAlbum = item.track_type === 'Album Track';
-                const title = isAlbum ? item.album_name : item.title;
-                // Ensure absolute pathing with leading slash
-                const link = isAlbum ? `/${item.album_page_path}` : `/${item.track_page_path}`;
-                const cleanLink = link.replace(/\/+/g, '/'); // Fix double slashes
-
-                return `
-                    <a href="${cleanLink}" class="music-card" data-status="${isAlbum ? 'Album' : item.status}">
-                        <div class="card-image">
-                            <img src="/${item.image_path.replace(/^\//, '')}" alt="${title}">
-                            <div class="status-badge">${isAlbum ? 'Album' : item.status}</div>
-                        </div>
-                        <div class="card-content">
-                            <h3>${title}</h3>
-                            <p class="artist">DoubleU</p>
-                            <p style="font-size: 0.8rem; color: #777; margin: 10px 0;">${isAlbum ? 'Official Album' : item.description}</p>
-                            <div class="meta">
-                                ${isAlbum ? 'Full Project' : `${item.bpm} BPM | ${item.length}`}
-                            </div>
-                        </div>
-                    </a>
-                `;
-            }).join('');
-        }
-
-        document.addEventListener('DOMContentLoaded', init);
-    </script>
 </body>
 </html>
