@@ -3,67 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>doubleU | Fan Login</title>
+    <title>DoubleU Official</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        :root { --neon-cyan: #00f2ff; --neon-orange: #ff8c00; --dark-bg: #050505; }
+        :root {
+            --neon-cyan: #00f2ff;
+            --dark-bg: #050505;
+        }
+
         body {
             background-color: var(--dark-bg);
-            background-image: radial-gradient(circle at 10% 20%, rgba(0, 242, 255, 0.08) 0%, transparent 40%),
-                              linear-gradient(180deg, #050505 0%, #0a0a0a 100%);
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Inter', sans-serif;
         }
-        .glass-panel { background: rgba(15, 15, 15, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(0, 242, 255, 0.2); }
-        .neon-input { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); color: white; transition: 0.3s; }
-        .neon-input:focus { border-color: var(--neon-cyan); outline: none; box-shadow: 0 0 10px rgba(0, 242, 255, 0.2); }
-        .btn-fan { background: var(--neon-cyan); color: #000; font-weight: 800; letter-spacing: 1px; transition: 0.3s; }
-        .btn-fan:hover { box-shadow: 0 0 20px rgba(0, 242, 255, 0.5); transform: translateY(-2px); }
+
+        /* The W Logo Animation */
+        .loader-logo {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--neon-cyan);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            position: relative;
+            transform: rotate(-6deg);
+            animation: pulse-glow 2s infinite alternate ease-in-out;
+        }
+
+        .loader-logo span {
+            color: var(--neon-cyan);
+            font-size: 3rem;
+            font-weight: 900;
+            font-style: italic;
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+                border-color: rgba(0, 242, 255, 0.4);
+                transform: rotate(-6deg) scale(1);
+            }
+            100% {
+                box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
+                border-color: var(--neon-cyan);
+                transform: rotate(-6deg) scale(1.05);
+            }
+        }
+
+        /* Loading Bar */
+        .progress-container {
+            position: absolute;
+            bottom: 20%;
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+            animation: progress-fill 2.5s forwards cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        @keyframes progress-fill {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+
+        .status-text {
+            position: absolute;
+            bottom: calc(20% - 25px);
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #444;
+            animation: flicker 1.5s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-6 text-white">
-    <div class="max-w-md w-full glass-panel rounded-3xl p-10 shadow-2xl">
-        <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold tracking-widest uppercase">Fan Access</h1>
-            <p class="text-gray-400 text-xs mt-2 uppercase tracking-tighter">Enter the DoubleU Collective</p>
-        </div>
+<body>
 
-        <div id="errorBox" class="hidden mb-4 p-3 bg-red-900/30 border border-red-500 text-red-200 text-xs rounded-lg"></div>
-
-        <form id="loginForm" class="space-y-5">
-            <div>
-                <label class="block text-[10px] font-bold text-[var(--neon-cyan)] uppercase mb-1 tracking-widest">Email</label>
-                <input type="email" id="email" placeholder="fan@example.com" required class="neon-input w-full px-4 py-3 rounded-xl">
-            </div>
-            <div>
-                <div class="flex justify-between">
-                    <label class="block text-[10px] font-bold text-[var(--neon-cyan)] uppercase mb-1 tracking-widest">Password</label>
-                    <a href="forgot-password.html" class="text-[10px] font-bold text-[var(--neon-orange)] uppercase hover:underline">Forgot?</a>
-                </div>
-                <input type="password" id="password" placeholder="••••••••" required class="neon-input w-full px-4 py-3 rounded-xl">
-            </div>
-            <button type="submit" class="btn-fan w-full py-4 rounded-xl uppercase active:scale-95">Sign In</button>
-        </form>
-
-        <p class="text-center text-xs text-gray-500 mt-8">
-            NOT IN THE CLUB? <a href="signup.html" class="font-bold text-[var(--neon-orange)] hover:underline">JOIN HERE</a>
-        </p>
+    <div class="loader-logo">
+        <span>W</span>
     </div>
 
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <div class="status-text">Initializing Identity</div>
+
     <script>
-        const _supabase = supabase.createClient('YOUR_URL', 'YOUR_KEY');
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const { error } = await _supabase.auth.signInWithPassword({
-                email: document.getElementById('email').value,
-                password: document.getElementById('password').value
-            });
-            if (error) {
-                const box = document.getElementById('errorBox');
-                box.innerText = error.message;
-                box.classList.remove('hidden');
-            } else {
-                window.location.href = 'index.html'; // Or fan-dashboard.html
-            }
+        // Redirect to home.html after the animation finishes
+        window.addEventListener('load', () => {
+            // Give the user a moment to see the full progress bar (2.5 seconds total)
+            setTimeout(() => {
+                // Fade out effect (optional)
+                document.body.style.transition = "opacity 0.5s ease";
+                document.body.style.opacity = "0";
+                
+                setTimeout(() => {
+                    window.location.href = './home.html';
+                }, 500);
+            }, 2600); 
         });
     </script>
 </body>
