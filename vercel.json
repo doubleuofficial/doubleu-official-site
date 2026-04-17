@@ -1,9 +1,11 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/pages/home.html", "destination": "/home" },
+    { "source": "/home", "destination": "/pages/home.html" },
     { "source": "/music", "destination": "/pages/music.html" },
     { "source": "/about", "destination": "/pages/about.html" },
-    { "source": "/contact", "destination": "/pages/contact.html" }
+    { "source": "/contact", "destination": "/pages/contact.html" },
+    { "source": "/signup", "destination": "/pages/signup.html" },
+    { "source": "/mediakit", "destination": "/pages/mediakit.html" }
   ]
 }
