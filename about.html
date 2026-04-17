@@ -4,85 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | DoubleU</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; }
-        .blur-nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(12px); }
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #666666);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        body { background-color: #050505; color: white; cursor: none; }
+        #cursor {
+            width: 20px; height: 20px; background: rgba(6, 182, 212, 0.4);
+            border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999;
+            mix-blend-mode: screen; transition: transform 0.1s;
         }
+        #transition-layer {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: black; z-index: 10000; pointer-events: none;
+            opacity: 0; transition: opacity 0.5s ease;
+        }
+        body.is-transitioning #transition-layer { opacity: 1; }
     </style>
 </head>
-<body class="antialiased pt-32">
+<body>
+    <div id="cursor"></div>
+    <div id="transition-layer"></div>
 
-    <nav class="fixed top-0 w-full z-50 blur-nav border-b border-white/5 py-6">
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/5 py-6">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <a href="/home.html" class="text-2xl font-black italic tracking-tighter hover:text-cyan-400 transition-colors">DOUBLEU</a>
-            
-            <div class="flex gap-6 md:gap-10 text-[10px] uppercase tracking-[0.3em] font-bold">
-                <a href="/home.html" class="hover:text-cyan-400 transition-colors">Home</a>
-                <a href="/music.html" class="hover:text-cyan-400 transition-colors">Music</a>
-                <a href="/about.html" class="text-cyan-400">About</a>
-                <a href="/contact.html" class="hover:text-cyan-400 transition-colors">Contact</a>
+            <a href="/home" class="text-2xl font-black italic tracking-tighter">DOUBLEU</a>
+            <div class="flex gap-8 text-[10px] uppercase tracking-[0.3em] font-bold text-gray-400">
+                <a href="/home" class="hover:text-cyan-400">Home</a>
+                <a href="/music" class="hover:text-cyan-400">Music</a>
+                <a href="/about" class="text-cyan-400">About</a>
+                <a href="/contact" class="hover:text-cyan-400">Contact</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto px-6 pb-24">
-        
-        <section class="mb-20">
-            <h1 class="text-6xl md:text-8xl font-black italic tracking-tighter mb-8">THE VOICE OF THE <span class="text-cyan-500">405.</span></h1>
-            <div class="aspect-video w-full overflow-hidden rounded-2xl border border-white/10 mb-12">
-                <img src="/assets/about-hero.webp" alt="DoubleU Artist Profile" class="w-full h-full object-cover opacity-60">
-            </div>
-        </section>
-
-        <section class="space-y-12 text-lg leading-relaxed text-gray-300">
-            <div class="space-y-6">
-                <h2 class="text-white font-bold text-2xl tracking-tight">Vulnerability in Every Verse</h2>
-                <p>
-                    Hailing from the heart of Oklahoma City, **DoubleU** is more than a stage name—it's a reflection of the man behind the music, William. Carving out a unique space in the underground scene, he specializes in a distinctive blend of **melodic soul-trap**, often referred to by fans as "pain music."
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="space-y-4">
-                    <h3 class="text-cyan-400 uppercase tracking-widest text-xs font-bold">The Sound</h3>
-                    <p class="text-sm">
-                        Moving away from the traditional aggressive tones of trap, DoubleU focuses on conversational, melodic delivery. His music serves as a raw, unfiltered look into personal struggle, growth, and the reality of life in the 405.
-                    </p>
-                </div>
-                <div class="p-8 bg-white/5 rounded-xl border border-white/5">
-                    <h3 class="text-white font-bold mb-2">Faded 405</h3>
-                    <p class="text-xs text-gray-500 italic">"The project isn't just about a city; it's about the shadows we live in and the light we're trying to find."</p>
-                </div>
-            </div>
-
-            <p>
-                From the atmospheric rain-soaked vibes of *Found You In The Rain Fall* to the calculated transparency of *Zero Sum*, DoubleU's discography is a testament to the power of melodic storytelling. No belting, no screaming—just the truth, delivered over cinematic production.
-            </p>
-        </section>
-
-        <section class="mt-24 pt-12 border-t border-white/5">
-            <h2 class="text-xs uppercase tracking-[0.5em] text-gray-500 font-bold mb-8 text-center">Connect with the Movement</h2>
-            <div class="flex justify-center gap-12 text-3xl">
-                <a href="https://open.spotify.com/artist/78gVqbaxxYAd9aLEZJ49YG" target="_blank" class="text-gray-500 hover:text-[#1DB954] transition-colors"><i class="fab fa-spotify"></i></a>
-                <a href="https://music.apple.com/us/artist/doubleu/1586705800" target="_blank" class="text-gray-500 hover:text-[#FC3C44] transition-colors"><i class="fab fa-apple"></i></a>
-                <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" class="text-gray-500 hover:text-[#FF0000] transition-colors"><i class="fab fa-youtube"></i></a>
-            </div>
-        </section>
-
+    <main class="max-w-7xl mx-auto px-6 pt-40 pb-24 grid md:grid-cols-2 gap-20 items-center">
+        <img src="/assets/profile.webp" class="rounded-2xl grayscale hover:grayscale-0 transition-all duration-700 border border-white/10">
+        <div class="space-y-6">
+            <h1 class="text-7xl font-black italic tracking-tighter uppercase">The Voice of <span class="text-cyan-500">The 405</span></h1>
+            <p class="text-gray-400 leading-relaxed text-lg">Hailing from Oklahoma City, DoubleU captures the cinematic grit of the streets through melodic soul-trap. This is pain music designed for the midnight drive.</p>
+        </div>
     </main>
-
-    <footer class="py-20 bg-[#030303] text-center">
-        <p class="text-gray-700 text-[10px] tracking-[0.6em] uppercase">© 2026 DoubleU • Designed for the 405</p>
-    </footer>
-
+    <script src="/engine.js"></script>
 </body>
 </html>

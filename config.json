@@ -1,0 +1,26 @@
+{
+  "brand": {
+    "name": "DOUBLEU",
+    "location": "Oklahoma City, OK (405)",
+    "aesthetic": "Cinematic Noir",
+    "colors": {
+      "primary": "#06b6d4",
+      "background": "#050505"
+    }
+  },
+  "contact": {
+    "email": "management@doubleuofficial.online",
+    "booking_subject": "Booking Inquiry",
+    "press_subject": "Press/Media Inquiry"
+  },
+  "socials": {
+    "spotify": "https://open.spotify.com/artist/78gVqbaxxYAd9aLEZJ49YG",
+    "apple": "https://music.apple.com/us/artist/doubleu/1586705800",
+    "youtube": "https://www.youtube.com/@DoubleUOTB",
+    "instagram": "https://instagram.com/doubleuotb"
+  },
+  "metadata": {
+    "description": "Official site of DoubleU. Melodic Soul-Trap from Oklahoma City.",
+    "og_image": "/assets/faded-405.webp"
+  }
+}
