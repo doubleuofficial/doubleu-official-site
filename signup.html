@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>doubleU | Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 min-h-screen flex items-center justify-center p-6">
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl p-10">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-14 h-14 bg-indigo-600 rounded-2xl mb-4 transform rotate-3 shadow-lg">
+                <span class="text-white text-2xl font-bold italic">W</span>
+            </div>
+            <h1 class="text-2xl font-bold text-slate-800">Create Account</h1>
+            <p class="text-slate-500 text-sm">Join the doubleU community today.</p>
+        </div>
+
+        <form action="/auth/signup" method="POST" class="space-y-4">
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-1 ml-1">First Name</label>
+                    <input type="text" placeholder="John" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 uppercase mb-1 ml-1">Last Name</label>
+                    <input type="text" placeholder="Doe" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+                </div>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1 ml-1">Email Address</label>
+                <input type="email" placeholder="you@example.com" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-600 uppercase mb-1 ml-1">Password</label>
+                <input type="password" placeholder="••••••••" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 outline-none transition-all">
+            </div>
+            <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl shadow-lg active:scale-[0.98] transition-transform mt-2">Get Started</button>
+        </form>
+
+        <p class="text-center text-sm text-slate-600 mt-8">
+            Already a member? <a href="login.html" class="font-bold text-indigo-600">Log In</a>
+        </p>
+    </div>
+</body>
+</html>
