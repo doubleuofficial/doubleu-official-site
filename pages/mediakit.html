@@ -14,6 +14,7 @@
             background-color: var(--dark-bg);
             color: white;
             font-family: 'Inter', sans-serif;
+            background-image: radial-gradient(circle at 2% 2%, rgba(0, 242, 255, 0.05) 0%, transparent 40%);
         }
         .text-neon { color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 242, 255, 0.5); }
         .section-header { 
@@ -23,9 +24,13 @@
             font-size: 0.75rem;
             color: #333;
         }
-        .stat-card {
-            border-left: 1px solid rgba(0, 242, 255, 0.3);
-            padding-left: 1.5rem;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+        .glass-card:hover {
+            border-color: var(--neon-cyan);
         }
     </style>
 </head>
@@ -33,15 +38,15 @@
 
     <header class="max-w-6xl mx-auto mb-32 flex flex-col md:flex-row justify-between items-end gap-10">
         <div>
-            <h4 class="text-neon uppercase tracking-[10px] text-xs font-bold mb-4">Official Electronic Press Kit</h4>
+            <h4 class="text-neon uppercase tracking-[10px] text-xs font-bold mb-4 italic">Official Press Kit</h4>
             <h1 class="text-7xl md:text-9xl font-black italic tracking-tighter uppercase leading-none">DoubleU</h1>
             <p class="mt-6 text-gray-500 max-w-md uppercase tracking-widest text-sm leading-relaxed">
-                The sound of OKC. Soul-Trap fueled by pain, resilience, and the 405.
+                Oklahoma City Soul-Trap. <br>The sound of the 405.
             </p>
         </div>
         <div class="text-right">
-            <p class="text-4xl font-bold tracking-tighter">2026 Edition</p>
-            <p class="text-xs text-gray-600 uppercase tracking-widest">Oklahoma City, OK</p>
+            <p class="text-4xl font-bold tracking-tighter uppercase italic">2026</p>
+            <p class="text-xs text-gray-600 uppercase tracking-widest">Digital Asset Folder</p>
         </div>
     </header>
 
@@ -50,76 +55,49 @@
         <section class="flex flex-col md:flex-row gap-12">
             <div class="section-header">Biography</div>
             <div class="flex-1">
-                <p class="text-2xl md:text-3xl font-light leading-relaxed text-gray-300">
-                    DoubleU isn't just a name; it’s a mission. Rising from <span class="text-white font-bold italic">Oklahoma City</span>, DoubleU blends the raw vulnerability of "Pain Music" with the cinematic textures of Soul-Trap. Every track is a report from the trenches, a narrative of the 405, and a testament to staying true.
+                <p class="text-2xl md:text-4xl font-light leading-snug text-gray-300 italic">
+                    DoubleU is the bridge between <span class="text-white font-bold">Pain Music</span> and cinematic production. Born and bred in <span class="text-[var(--neon-cyan)] font-bold">OKC</span>, his narrative-driven Soul-Trap captures the grit and growth of a generation.
                 </p>
-                <div class="mt-12 flex gap-4">
-                    <span class="px-4 py-1 border border-white/10 text-[10px] uppercase tracking-widest">Soul-Trap</span>
-                    <span class="px-4 py-1 border border-white/10 text-[10px] uppercase tracking-widest">Hip-Hop</span>
-                    <span class="px-4 py-1 border border-white/10 text-[10px] uppercase tracking-widest">OKC Local</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="flex flex-col md:flex-row gap-12">
-            <div class="section-header">Metrics</div>
-            <div class="flex-1 grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="stat-card">
-                    <p class="text-4xl font-black mb-2">10K+</p>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-500">Monthly Listeners</p>
-                </div>
-                <div class="stat-card">
-                    <p class="text-4xl font-black mb-2">250K+</p>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-500">Total Streams</p>
-                </div>
-                <div class="stat-card">
-                    <p class="text-4xl font-black mb-2">15%</p>
-                    <p class="text-[10px] uppercase tracking-widest text-gray-500">Engagement Rate</p>
-                </div>
             </div>
         </section>
 
         <section class="flex flex-col md:flex-row gap-12">
             <div class="section-header">Latest Focus</div>
-            <div class="flex-1 bg-white/5 p-10 rounded-2xl flex flex-col md:flex-row gap-10 items-center">
-                <img src="assets/240.webp" class="w-64 h-64 object-cover shadow-2xl" alt="Faded 405">
+            <div class="flex-1 glass-card p-10 rounded-3xl flex flex-col md:flex-row gap-10 items-center">
+                <img src="../assets/240.webp" class="w-64 h-64 object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" alt="Faded 405">
                 <div>
-                    <h3 class="text-4xl font-black uppercase italic mb-2">Faded 405</h3>
-                    <p class="text-xs text-[var(--neon-cyan)] uppercase tracking-widest mb-6">Full Length Album • 2026</p>
+                    <h3 class="text-4xl font-black uppercase italic mb-2 tracking-tighter">Faded 405</h3>
+                    <p class="text-xs text-[var(--neon-cyan)] uppercase tracking-widest mb-6">Full Length Project</p>
                     <p class="text-gray-400 text-sm leading-relaxed mb-8">
-                        The definitive sound of the year. Featuring lead singles that have dominated the local scene and expanded the DoubleU brand nationwide.
+                        The definitive sound of 2026. A 405 anthem cycle.
                     </p>
-                    <a href="pages/albums/faded405/index.html" class="px-8 py-3 bg-[var(--neon-cyan)] text-black font-bold text-xs uppercase tracking-widest">Listen Now</a>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="px-6 py-2 border border-white/20 text-[10px] uppercase font-bold hover:bg-white hover:text-black transition">Apple</a>
+                        <a href="#" class="px-6 py-2 border border-white/20 text-[10px] uppercase font-bold hover:bg-white hover:text-black transition">Spotify</a>
+                        <a href="#" class="px-6 py-2 border border-white/20 text-[10px] uppercase font-bold hover:bg-white hover:text-black transition">YouTube</a>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="flex flex-col md:flex-row gap-12 pb-40">
-            <div class="section-header">Resources</div>
-            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <a href="#" class="p-6 bg-white/5 border border-white/5 hover:border-[var(--neon-cyan)] transition-all flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest">High-Res Press Photos</span>
-                    <span class="text-gray-600 text-[10px]">ZIP (45MB)</span>
-                </a>
-                <a href="#" class="p-6 bg-white/5 border border-white/5 hover:border-[var(--neon-cyan)] transition-all flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest">Official Logo Kit</span>
-                    <span class="text-gray-600 text-[10px]">SVG/PNG</span>
-                </a>
-                <a href="#" class="p-6 bg-white/5 border border-white/5 hover:border-[var(--neon-cyan)] transition-all flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest">Technical Rider</span>
-                    <span class="text-gray-600 text-[10px]">PDF</span>
-                </a>
-                <a href="#" class="p-6 bg-white/5 border border-white/5 hover:border-[var(--neon-cyan)] transition-all flex justify-between items-center">
-                    <span class="text-xs uppercase tracking-widest">Booking Inquiry</span>
-                    <span class="text-neon text-[10px]">Contact</span>
-                </a>
+            <div class="section-header">Contact</div>
+            <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Management & Sync</h4>
+                    <a href="mailto:sync@doubleuofficial.online" class="text-xl font-bold hover:text-[var(--neon-cyan)] transition-colors">sync@doubleuofficial.online</a>
+                </div>
+                <div class="glass-card p-8 rounded-2xl">
+                    <h4 class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-4">Press Assets</h4>
+                    <button class="text-xs font-bold uppercase tracking-[4px] border-b border-[var(--neon-cyan)] pb-1 hover:text-[var(--neon-cyan)]">Download High-Res Photos (ZIP)</button>
+                </div>
             </div>
         </section>
 
     </main>
 
-    <footer class="text-center py-10 border-t border-white/5">
-        <p class="text-[10px] text-gray-700 tracking-[10px] uppercase">DoubleU Official Management</p>
+    <footer class="text-center py-20 border-t border-white/5">
+        <p class="text-[9px] text-gray-800 tracking-[15px] uppercase">DoubleU Collective OKC</p>
     </footer>
 
 </body>
