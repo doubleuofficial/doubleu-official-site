@@ -3,223 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU Official | Home</title>
+    <title>DoubleU | Faded 405 | Official Website</title>
+    <meta name="description" content="Stream Faded 405 and experience the evolution of Soul-Trap in Oklahoma City.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "DoubleU",
+      "genre": "Soul-Trap",
+      "homeLocation": "Oklahoma City",
+      "url": "https://doubleuofficial.online"
+    }
+    </script>
     <style>
-        :root {
-            --neon-cyan: #00f2ff;
-            --neon-orange: #ff8c00;
-            --dark-bg: #050505;
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Video/Image Hero Backdrop */
-        .hero-visual {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        /* Dark overlay for readability */
-        .hero-visual::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.2) 0%, rgba(5,5,5,1) 90%);
-        }
-
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) contrast(110%);
-            transform: scale(1.1);
-            animation: slow-zoom 20s infinite alternate ease-in-out;
-        }
-
-        @keyframes slow-zoom {
-            from { transform: scale(1); }
-            to { transform: scale(1.15); }
-        }
-
-        .nav-glass {
-            background: rgba(10, 10, 10, 0.4);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .hero-title {
-            font-size: clamp(4rem, 18vw, 12rem);
-            line-height: 0.75;
-            font-weight: 900;
-            font-style: italic;
-            letter-spacing: -8px;
-            text-transform: uppercase;
-            filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
-        }
-
-        /* Magnetic Button Effect */
-        .btn-premium {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .btn-premium::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: var(--neon-cyan);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-            z-index: -1;
-        }
-
-        .btn-premium:hover::before {
-            width: 300%;
-            height: 300%;
-        }
-
-        .btn-premium:hover {
-            color: black;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 242, 255, 0.3);
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.01);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.03);
-            border-color: var(--neon-cyan);
-            transform: scale(1.02);
-        }
+        :root { --neon-cyan: #00f2ff; --neon-orange: #ff8c00; --dark-bg: #050505; }
+        body { background-color: var(--dark-bg); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .hero-visual { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden; }
+        .hero-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,5,5,0) 0%, rgba(5,5,5,1) 90%); }
+        .hero-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(110%); animation: slow-zoom 20s infinite alternate ease-in-out; }
+        @keyframes slow-zoom { from { transform: scale(1); } to { transform: scale(1.1); } }
+        .nav-glass { background: rgba(10, 10, 10, 0.4); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
+        .hero-title { font-size: clamp(4rem, 18vw, 12rem); line-height: 0.75; font-weight: 900; font-style: italic; letter-spacing: -8px; text-transform: uppercase; }
+        .glass-card { background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .glass-card:hover { border-color: var(--neon-cyan); transform: translateY(-5px); }
+        .footer-ghost { font-size: 20vw; line-height: 0.8; font-weight: 900; font-style: italic; letter-spacing: -1vw; background: linear-gradient(to bottom, #111, #050505); -webkit-background-clip: text; -webkit-text-fill-color: transparent; user-select: none; }
     </style>
 </head>
 <body>
-
-    <div class="hero-visual">
-        <img src="../assets/240.webp" class="hero-img" alt="Background">
-    </div>
-
+    <div class="hero-visual"><img src="../assets/240.webp" class="hero-img" alt="DoubleU Artist Background"></div>
+    
     <nav class="nav-glass fixed top-0 w-full z-[100] px-8 py-5 flex justify-between items-center">
-        <div class="text-2xl font-black italic tracking-tighter hover:text-[var(--neon-cyan)] transition-colors cursor-pointer">DOUBLEU</div>
-        <div class="hidden md:flex gap-12 items-center">
-            <a href="music.html" class="text-[9px] font-bold uppercase tracking-[5px] hover:text-[var(--neon-cyan)] transition-all">Discography</a>
-            <a href="mediakit.html" class="text-[9px] font-bold uppercase tracking-[5px] hover:text-[var(--neon-cyan)] transition-all">Media Kit</a>
-            <a href="fan/login.html" class="group relative px-6 py-2">
-                <span class="relative z-10 text-[9px] font-black uppercase tracking-widest text-[var(--neon-orange)] group-hover:text-black transition-colors">Fan Club</span>
-                <div class="absolute inset-0 border border-[var(--neon-orange)] group-hover:bg-[var(--neon-orange)] transition-all"></div>
-            </a>
+        <div class="text-2xl font-black italic tracking-tighter">DOUBLEU</div>
+        <div class="hidden md:flex gap-12 text-[9px] font-bold uppercase tracking-[5px]">
+            <a href="/home" class="text-[var(--neon-cyan)]">Home</a>
+            <a href="/music" class="hover:text-[var(--neon-cyan)] transition-all">Music</a>
+            <a href="/about" class="hover:text-[var(--neon-cyan)] transition-all">About</a>
+            <a href="/contact" class="hover:text-[var(--neon-cyan)] transition-all">Contact</a>
         </div>
     </nav>
 
     <header class="relative min-h-screen flex flex-col justify-center items-center px-6">
         <div class="text-center z-10">
-            <div class="mb-6 opacity-0 translate-y-4 animate-[reveal_1s_0.2s_forwards]">
-                <span class="text-[var(--neon-cyan)] font-bold uppercase tracking-[12px] text-[10px] border-b border-[var(--neon-cyan)] pb-2">Oklahoma City 2026</span>
+            <span class="text-[var(--neon-cyan)] font-bold uppercase tracking-[12px] text-[10px] mb-4 block">Oklahoma City 2026</span>
+            <h1 class="hero-title mb-16">Faded 405</h1>
+            <div class="flex gap-6 justify-center">
+                <a href="/music" class="px-12 py-5 border border-white font-black uppercase text-xs hover:bg-white hover:text-black transition-all">Stream</a>
+                <a href="/contact" class="px-12 py-5 border border-white/10 hover:border-white font-black uppercase text-xs transition-all">Connect</a>
             </div>
-            
-            <h1 class="hero-title mb-16 opacity-0 translate-y-10 animate-[reveal_1s_0.4s_forwards]">Faded 405</h1>
-            
-            <div class="flex flex-col md:flex-row gap-8 justify-center opacity-0 translate-y-4 animate-[reveal_1s_0.6s_forwards]">
-                <a href="albums/faded405/index.html" class="btn-premium px-16 py-6 border border-white font-black uppercase tracking-[3px] text-xs">
-                    Stream Now
-                </a>
-                <a href="#connect" class="px-16 py-6 bg-transparent border border-white/10 hover:border-white font-black uppercase tracking-[3px] text-xs transition-all">
-                    The Sound
-                </a>
-            </div>
-        </div>
-
-        <div class="absolute bottom-10 flex flex-col items-center">
-            <div class="w-[1px] h-20 bg-gradient-to-b from-transparent via-[var(--neon-cyan)] to-transparent animate-pulse"></div>
         </div>
     </header>
 
-    <section id="connect" class="container mx-auto px-6 py-40">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            
-            <div class="glass-card p-12 rounded-[2rem]">
-                <p class="text-[var(--neon-cyan)] text-[10px] font-black uppercase tracking-[5px] mb-10">Consumption</p>
-                <div class="space-y-4">
-                    <a href="https://music.apple.com" target="_blank" class="flex items-center justify-between p-4 border border-white/5 rounded-xl hover:bg-white/5 transition-all group">
-                        <span class="text-xs font-bold uppercase tracking-widest">Apple Music</span>
-                        <span class="text-[var(--neon-cyan)] opacity-0 group-hover:opacity-100 transition-all">→</span>
-                    </a>
-                    <a href="http://googleusercontent.com/spotify.com/2" target="_blank" class="flex items-center justify-between p-4 border border-white/5 rounded-xl hover:bg-white/5 transition-all group">
-                        <span class="text-xs font-bold uppercase tracking-widest">Spotify</span>
-                        <span class="text-[var(--neon-cyan)] opacity-0 group-hover:opacity-100 transition-all">→</span>
-                    </a>
-                    <a href="https://youtube.com" target="_blank" class="flex items-center justify-between p-4 border border-white/5 rounded-xl hover:bg-white/5 transition-all group">
-                        <span class="text-xs font-bold uppercase tracking-widest">YouTube</span>
-                        <span class="text-[var(--neon-cyan)] opacity-0 group-hover:opacity-100 transition-all">→</span>
-                    </a>
-                </div>
+    <section class="container mx-auto px-6 py-40 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="glass-card p-12 rounded-[2rem]">
+            <p class="text-[var(--neon-cyan)] text-[10px] font-black uppercase tracking-[5px] mb-10">Platforms</p>
+            <div class="space-y-4 text-[10px] font-bold uppercase tracking-widest">
+                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[#fa243c]">Apple Music</a>
+                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[#1DB954]">Spotify</a>
+                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[#FF0000]">YouTube</a>
+                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[var(--neon-cyan)]">TikTok</a>
             </div>
-
-            <div class="glass-card p-12 rounded-[2rem]">
-                <p class="text-[var(--neon-orange)] text-[10px] font-black uppercase tracking-[5px] mb-10">Connection</p>
-                <div class="grid grid-cols-1 gap-6">
-                    <a href="#" class="text-2xl font-black italic tracking-tighter hover:text-[var(--neon-cyan)] transition-all">INSTAGRAM</a>
-                    <a href="#" class="text-2xl font-black italic tracking-tighter hover:text-[var(--neon-cyan)] transition-all">TIKTOK</a>
-                    <a href="#" class="text-2xl font-black italic tracking-tighter hover:text-[var(--neon-cyan)] transition-all">X / TWITTER</a>
-                    <a href="#" class="text-2xl font-black italic tracking-tighter hover:text-[var(--neon-cyan)] transition-all">FACEBOOK</a>
-                </div>
+        </div>
+        <div class="glass-card p-12 rounded-[2rem]">
+            <p class="text-[var(--neon-orange)] text-[10px] font-black uppercase tracking-[5px] mb-10">Social</p>
+            <div class="flex flex-col gap-6 text-2xl font-black italic tracking-tighter">
+                <a href="#" class="hover:text-[var(--neon-cyan)] transition-all">INSTAGRAM</a>
+                <a href="#" class="hover:text-[var(--neon-cyan)] transition-all">TIKTOK</a>
+                <a href="#" class="hover:text-[var(--neon-cyan)] transition-all">X / TWITTER</a>
             </div>
-
-            <div class="glass-card p-12 rounded-[2rem] border-[var(--neon-cyan)]/20">
-                <p class="text-white text-[10px] font-black uppercase tracking-[5px] mb-10">Professional</p>
-                <p class="text-gray-500 text-xs uppercase tracking-widest leading-loose mb-10">
-                    Sync Licensing, Features, & Press:
-                </p>
-                <a href="mailto:sync@doubleuofficial.online" class="text-base md:text-lg font-black text-[var(--neon-cyan)] hover:brightness-125 transition-all break-all underline underline-offset-8">
-                    sync@doubleuofficial.online
-                </a>
-                <div class="mt-20">
-                    <a href="mediakit.html" class="inline-block text-[9px] font-black uppercase tracking-[5px] border-b border-white/20 hover:border-[var(--neon-cyan)] transition-all pb-2">
-                        Access EPK 2026
-                    </a>
-                </div>
-            </div>
-
+        </div>
+        <div class="glass-card p-12 rounded-[2rem]">
+            <p class="text-white text-[10px] font-black uppercase tracking-[5px] mb-10">Business</p>
+            <a href="mailto:sync@doubleuofficial.online" class="text-sm font-black text-[var(--neon-cyan)] break-all underline underline-offset-8">sync@doubleuofficial.online</a>
+            <p class="mt-8 text-[9px] text-gray-500 uppercase tracking-widest leading-loose">Inquiries for licensing & booking.</p>
         </div>
     </section>
 
-    <footer class="py-40 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-[var(--neon-cyan)]/5 to-transparent"></div>
-        <h2 class="text-[15vw] font-black italic tracking-[--20px] opacity-5 select-none">DOUBLEU</h2>
-        <p class="text-[10px] text-gray-700 uppercase tracking-[20px] relative z-10">Oklahoma City Collective</p>
+  <footer class="pt-40 pb-20 bg-black overflow-hidden relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
+                <div><h3 class="text-4xl font-black italic mb-4">DOUBLEU</h3><p class="text-gray-500 text-[10px] uppercase tracking-[5px]">OKC 405 / 2026</p></div>
+                <div class="flex gap-20 text-[10px] font-bold uppercase tracking-widest">
+                    <div class="flex flex-col gap-3"><a href="/home">Home</a><a href="/music">Music</a></div>
+                    <div class="flex flex-col gap-3"><a href="/mediakit">EPK</a><a href="/contact">Contact</a></div>
+                </div>
+            </div>
+            <div class="footer-ghost text-center pointer-events-none">DOUBLEU</div>
+            <div class="mt-20 flex justify-between border-t border-white/5 pt-10 text-[9px] text-gray-700 uppercase tracking-[4px]">
+                <span>&copy; 2026 DOUBLEU OFFICIAL</span><span>OKLAHOMA CITY</span>
+            </div>
+        </div>
     </footer>
-
-    <script>
-        // Custom reveal animation in tailwind config is hard, so we use CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes reveal {
-                0% { opacity: 0; transform: translateY(30px); }
-                100% { opacity: 1; transform: translateY(0); }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
