@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoubleU Official | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --neon-cyan: #00f2ff;
+            --neon-orange: #ff8c00;
+            --dark-bg: #050505;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Cinematic Background */
+        .bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 140, 0, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .nav-link {
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 3px;
+            transition: 0.3s;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.9;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            letter-spacing: -4px;
+        }
+
+        .btn-main {
+            background: white;
+            color: black;
+            padding: 1.25rem 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+        }
+
+        .btn-main:hover {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+        }
+
+        .glass-card:hover {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 242, 255, 0.02);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-canvas"></div>
+
+    <nav class="p-8 flex justify-between items-center relative z-50">
+        <div class="text-2xl font-black italic tracking-tighter">DOUBLEU</div>
+        <div class="hidden md:flex gap-10">
+            <a href="music.html" class="nav-link hover:text-[var(--neon-cyan)]">Discography</a>
+            <a href="fan/login.html" class="nav-link hover:text-[var(--neon-orange)]">Fan Login</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12 md:py-24 flex flex-col items-center">
+        
+        <div class="text-center mb-16">
+            <span class="text-[var(--neon-cyan)] font-bold uppercase tracking-[8px] text-[10px] mb-4 block">New Sound Dropped</span>
+            <h1 class="hero-title mb-8">Faded 405</h1>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center mt-10">
+                <a href="albums/faded405/index.html" class="btn-main">Stream Project</a>
+                <a href="music.html" class="px-10 py-5 border border-white/20 hover:border-white font-black uppercase tracking-widest text-sm transition-all">View Catalog</a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
+            <div class="glass-card p-8 rounded-2xl group cursor-pointer">
+                <p class="text-[var(--neon-orange)] text-[10px] font-bold uppercase mb-4 tracking-widest">YouTube</p>
+                <h3 class="text-xl font-bold mb-4">Official Visuals</h3>
+                <div class="aspect-video bg-black/40 rounded-lg overflow-hidden relative">
+                    <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition-opacity" alt="Latest Video">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-black pl-1">▶</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl">
+                <p class="text-[var(--neon-cyan)] text-[10px] font-bold uppercase mb-4 tracking-widest">Connect</p>
+                <h3 class="text-xl font-bold mb-6">Join the Noise</h3>
+                <ul class="space-y-4">
+                    <li><a href="#" class="flex justify-between items-center hover:text-[var(--neon-cyan)] transition-colors"><span>Instagram</span> <small class="text-gray-500">@DoubleU</small></a></li>
+                    <li><a href="#" class="flex justify-between items-center hover:text-[var(--neon-cyan)] transition-colors"><span>Twitter / X</span> <small class="text-gray-500">@DoubleU</small></a></li>
+                    <li><a href="#" class="flex justify-between items-center hover:text-[var(--neon-cyan)] transition-colors"><span>TikTok</span> <small class="text-gray-500">@DoubleU</small></a></li>
+                </ul>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl border-orange-500/20">
+                <p class="text-white text-[10px] font-bold uppercase mb-4 tracking-widest">Updates</p>
+                <h3 class="text-xl font-bold mb-2">The Collective</h3>
+                <p class="text-xs text-gray-500 mb-6">Be the first to hear unreleased demos and drop dates.</p>
+                <form id="subscriberForm" class="space-y-3">
+                    <input type="email" id="subEmail" placeholder="Enter Email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[var(--neon-orange)]">
+                    <button class="w-full bg-[var(--neon-orange)] py-3 rounded-lg text-black font-black text-xs uppercase hover:shadow-[0_0_15px_rgba(255,140,0,0.4)] transition-all">Join List</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 text-center border-t border-white/5">
+        <p class="text-[10px] text-gray-600 tracking-widest uppercase mb-2">DoubleU Official &bull; Oklahoma City 2026</p>
+        <p class="text-[9px] text-gray-700 tracking-[5px] uppercase">Soul Trap / Pain Music</p>
+    </footer>
+
+    <script>
+        const SUPABASE_URL = 'https://xpwgzassajhmlqrjyyon.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_fmzJd-HdlmXiJNZHKn8irg_RvMQBLP6';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        // Newsletter Subscription
+        document.getElementById('subscriberForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('subEmail').value;
+            
+            const { error } = await _supabase
+                .from('subscribers')
+                .insert([{ email: email }]);
+
+            if (error) alert("Error: " + error.message);
+            else {
+                alert("You're in. Welcome to the collective.");
+                document.getElementById('subEmail').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
