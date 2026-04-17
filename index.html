@@ -3,32 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU Official | Enter the 405</title>
-    <meta name="description" content="Official entrance to the DoubleU movement. Experience Oklahoma City Soul-Trap.">
+    <title>DoubleU</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --neon-cyan: #00f2ff; --dark-bg: #050505; }
-        body { background-color: var(--dark-bg); margin: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; font-family: 'Inter', sans-serif; }
-        .main-w { font-size: 12rem; font-weight: 900; font-style: italic; color: white; letter-spacing: -10px; animation: glitch 500ms infinite; }
-        .terminal-text { margin-top: 2rem; font-family: monospace; font-size: 10px; color: var(--neon-cyan); text-transform: uppercase; letter-spacing: 4px; }
+        body { background: #050505; overflow: hidden; }
+        .glitch-w { font-size: clamp(8rem, 25vw, 15rem); font-weight: 900; font-style: italic; color: white; letter-spacing: -10px; animation: glitch 400ms infinite; }
         @keyframes glitch {
-            0% { text-shadow: 0.05em 0 0 #ff0000, -0.05em -0.025em 0 #00ff00; }
-            50% { text-shadow: -0.025em 0.05em 0 #ff0000, 0.05em 0 0 #0000ff; }
-            100% { text-shadow: -0.025em 0 0 #ff0000, -0.025em -0.025em 0 #00ff00; }
+            0% { text-shadow: 2px 0 #ff00c1, -2px -2px #00fff9; transform: translate(2px, 0); }
+            25% { text-shadow: -2px 0 #ff00c1, 2px 2px #00fff9; transform: translate(-2px, 0); }
+            100% { text-shadow: 2px 0 #ff00c1, -2px -2px #00fff9; }
         }
     </style>
 </head>
-<body>
-    <div class="main-w">W</div>
-    <div class="terminal-text" id="loading-msg">Initializing Identity</div>
-    <script>
-        const messages = ["Calibrating Sound", "Identity Confirmed", "Entering the 405"];
-        let i = 0;
-        const msgEl = document.getElementById('loading-msg');
-        const interval = setInterval(() => {
-            if (i < messages.length) { msgEl.innerText = messages[i++]; }
-            else { clearInterval(interval); window.location.href = '/home'; }
-        }, 800);
-    </script>
+<body class="flex flex-col items-center justify-center h-screen">
+    <div class="glitch-w">W</div>
+    <div class="mt-4 font-mono text-[10px] uppercase tracking-[5px] text-cyan-400 opacity-70">Initiating 405 Protocol</div>
+    <script>setTimeout(() => { window.location.href = '/home'; }, 1800);</script>
 </body>
 </html>

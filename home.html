@@ -3,96 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU | Faded 405 | Official Website</title>
-    <meta name="description" content="Stream Faded 405 and experience the evolution of Soul-Trap in Oklahoma City.">
+    <title>DoubleU | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MusicGroup",
-      "name": "DoubleU",
-      "genre": "Soul-Trap",
-      "homeLocation": "Oklahoma City",
-      "url": "https://doubleuofficial.online"
-    }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        :root { --neon-cyan: #00f2ff; --neon-orange: #ff8c00; --dark-bg: #050505; }
-        body { background-color: var(--dark-bg); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        .hero-visual { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; overflow: hidden; }
-        .hero-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(5,5,5,0) 0%, rgba(5,5,5,1) 90%); }
-        .hero-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) contrast(110%); animation: slow-zoom 20s infinite alternate ease-in-out; }
-        @keyframes slow-zoom { from { transform: scale(1); } to { transform: scale(1.1); } }
-        .nav-glass { background: rgba(10, 10, 10, 0.4); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
-        .hero-title { font-size: clamp(4rem, 18vw, 12rem); line-height: 0.75; font-weight: 900; font-style: italic; letter-spacing: -8px; text-transform: uppercase; }
-        .glass-card { background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .glass-card:hover { border-color: var(--neon-cyan); transform: translateY(-5px); }
-        .footer-ghost { font-size: 20vw; line-height: 0.8; font-weight: 900; font-style: italic; letter-spacing: -1vw; background: linear-gradient(to bottom, #111, #050505); -webkit-background-clip: text; -webkit-text-fill-color: transparent; user-select: none; }
+        body { background-color: #050505; color: white; -webkit-font-smoothing: antialiased; }
+        .hero-title { line-height: 0.8; letter-spacing: -0.05em; }
+        .nav-blur { backdrop-filter: blur(10px); background: rgba(5,5,5,0.8); }
     </style>
 </head>
-<body>
-    <div class="hero-visual"><img src="../assets/240.webp" class="hero-img" alt="DoubleU Artist Background"></div>
-    
-    <nav class="nav-glass fixed top-0 w-full z-[100] px-8 py-5 flex justify-between items-center">
-        <div class="text-2xl font-black italic tracking-tighter">DOUBLEU</div>
-        <div class="hidden md:flex gap-12 text-[9px] font-bold uppercase tracking-[5px]">
-            <a href="/home" class="text-[var(--neon-cyan)]">Home</a>
-            <a href="/music" class="hover:text-[var(--neon-cyan)] transition-all">Music</a>
-            <a href="/about" class="hover:text-[var(--neon-cyan)] transition-all">About</a>
-            <a href="/contact" class="hover:text-[var(--neon-cyan)] transition-all">Contact</a>
+<body class="selection:bg-cyan-400 selection:text-black">
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5 py-6 px-8 flex justify-between items-center">
+        <a href="/home" id="config-site_name" class="text-xl font-black italic tracking-tighter uppercase">DoubleU</a>
+        <div class="flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+            <a href="/music" class="hover:text-cyan-400 transition">Music</a>
+            <a href="/mediakit" class="hover:text-cyan-400 transition">EPK</a>
+            <a href="/contact" class="hover:text-cyan-400 transition">Contact</a>
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex flex-col justify-center items-center px-6">
-        <div class="text-center z-10">
-            <span class="text-[var(--neon-cyan)] font-bold uppercase tracking-[12px] text-[10px] mb-4 block">Oklahoma City 2026</span>
-            <h1 class="hero-title mb-16">Faded 405</h1>
-            <div class="flex gap-6 justify-center">
-                <a href="/music" class="px-12 py-5 border border-white font-black uppercase text-xs hover:bg-white hover:text-black transition-all">Stream</a>
-                <a href="/contact" class="px-12 py-5 border border-white/10 hover:border-white font-black uppercase text-xs transition-all">Connect</a>
+    <header class="min-h-screen flex flex-col justify-center px-8 md:px-20 pt-20">
+        <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h4 class="text-cyan-400 uppercase tracking-[12px] text-[10px] font-bold mb-6">Oklahoma City // 405</h4>
+                <h1 class="hero-title text-7xl md:text-[10rem] font-black italic uppercase mb-8">FADED<br>405</h1>
+                <p id="config-hero_bio" class="text-gray-400 text-lg md:text-xl leading-relaxed italic max-w-lg mb-12 border-l border-cyan-400/30 pl-6">Loading transmission...</p>
+                <div class="flex gap-4">
+                    <a id="config-spotify_url" href="#" target="_blank" class="px-10 py-5 bg-white text-black font-black uppercase text-[10px] tracking-[5px] hover:bg-cyan-400 transition">Spotify</a>
+                    <a id="config-apple_url" href="#" target="_blank" class="px-10 py-5 border border-white/20 font-black uppercase text-[10px] tracking-[5px] hover:border-white transition">Apple</a>
+                </div>
+            </div>
+            <div class="relative">
+                <img id="config-hero_img" src="" class="w-full aspect-[4/5] object-cover grayscale hover:grayscale-0 transition duration-1000 rounded-sm">
             </div>
         </div>
     </header>
 
-    <section class="container mx-auto px-6 py-40 grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <div class="glass-card p-12 rounded-[2rem]">
-            <p class="text-[var(--neon-cyan)] text-[10px] font-black uppercase tracking-[5px] mb-10">Platforms</p>
-            <div class="space-y-4 text-[10px] font-bold uppercase tracking-widest">
-                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[#fa243c]">Apple Music</a>
-                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[#1DB954]">Spotify</a>
-                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[#FF0000]">YouTube</a>
-                <a href="#" class="block p-4 border border-white/5 rounded-xl hover:border-[var(--neon-cyan)]">TikTok</a>
-            </div>
-        </div>
-        <div class="glass-card p-12 rounded-[2rem]">
-            <p class="text-[var(--neon-orange)] text-[10px] font-black uppercase tracking-[5px] mb-10">Social</p>
-            <div class="flex flex-col gap-6 text-2xl font-black italic tracking-tighter">
-                <a href="#" class="hover:text-[var(--neon-cyan)] transition-all">INSTAGRAM</a>
-                <a href="#" class="hover:text-[var(--neon-cyan)] transition-all">TIKTOK</a>
-                <a href="#" class="hover:text-[var(--neon-cyan)] transition-all">X / TWITTER</a>
-            </div>
-        </div>
-        <div class="glass-card p-12 rounded-[2rem]">
-            <p class="text-white text-[10px] font-black uppercase tracking-[5px] mb-10">Business</p>
-            <a href="mailto:sync@doubleuofficial.online" class="text-sm font-black text-[var(--neon-cyan)] break-all underline underline-offset-8">sync@doubleuofficial.online</a>
-            <p class="mt-8 text-[9px] text-gray-500 uppercase tracking-widest leading-loose">Inquiries for licensing & booking.</p>
+    <section class="py-32 px-8 md:px-20 bg-[#080808]">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-black italic uppercase tracking-tighter mb-16">The Archive</h2>
+            <div id="catalog-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                </div>
         </div>
     </section>
 
-  <footer class="pt-40 pb-20 bg-black overflow-hidden relative">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-10">
-                <div><h3 class="text-4xl font-black italic mb-4">DOUBLEU</h3><p class="text-gray-500 text-[10px] uppercase tracking-[5px]">OKC 405 / 2026</p></div>
-                <div class="flex gap-20 text-[10px] font-bold uppercase tracking-widest">
-                    <div class="flex flex-col gap-3"><a href="/home">Home</a><a href="/music">Music</a></div>
-                    <div class="flex flex-col gap-3"><a href="/mediakit">EPK</a><a href="/contact">Contact</a></div>
-                </div>
-            </div>
-            <div class="footer-ghost text-center pointer-events-none">DOUBLEU</div>
-            <div class="mt-20 flex justify-between border-t border-white/5 pt-10 text-[9px] text-gray-700 uppercase tracking-[4px]">
-                <span>&copy; 2026 DOUBLEU OFFICIAL</span><span>OKLAHOMA CITY</span>
-            </div>
-        </div>
-    </footer>
+    <script src="/js/engine.js"></script>
 </body>
 </html>
