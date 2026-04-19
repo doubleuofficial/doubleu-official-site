@@ -2,92 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoubleU Official</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DoubleU // Official</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { background: #050505; color: white; font-family: sans-serif; overflow-x: hidden; }
-        .view { display: none; min-height: 100vh; transition: opacity 0.5s ease; }
-        .view.active { display: flex; flex-direction: column; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .neon-glow { text-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body>
+<body class="bg-[#050505] text-[#eee] overflow-x-hidden">
+    <div class="film-grain"></div>
 
-    <section id="home" class="view active items-center justify-center text-center p-6">
-        <h1 class="text-8xl font-black italic tracking-tighter mb-4 neon-glow">DOUBLEU</h1>
-        <p class="text-[10px] tracking-[0.8em] text-gray-500 uppercase mb-12">Oklahoma City Noir</p>
-        <button onclick="showView('catalog')" class="border border-white/20 px-12 py-4 text-[10px] uppercase tracking-[0.5em] hover:bg-white hover:text-black transition-all">Enter Experience</button>
-    </section>
+    <nav class="fixed top-0 w-full z-50 p-4 md:p-6 flex justify-between items-center bg-gradient-to-b from-black to-transparent">
+        <a href="/" class="text-[#FF5F1F] font-black italic tracking-tighter text-xl md:text-2xl">DoubleU</a>
+        <div class="flex space-x-4 md:space-x-8 text-[9px] md:text-[10px] font-bold uppercase tracking-widest md:tracking-[0.3em]">
+            <a href="/music" class="hover:text-[#00FFFF] transition">Music</a>
+            <a href="https://www.youtube.com/@DoubleUOTB" target="_blank" class="hover:text-[#00FFFF] transition">YT</a>
+        </div>
+    </nav>
 
-    <section id="catalog" class="view p-10">
-        <nav class="mb-20"><button onclick="showView('home')" class="text-[9px] uppercase tracking-widest text-gray-500">← Back</button></nav>
-        <div id="grid-container" class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            </div>
-    </section>
-
-    <section id="player" class="view p-10 items-center justify-center">
-        <nav class="fixed top-10 left-10"><button onclick="showView('catalog')" class="text-[9px] uppercase tracking-widest text-gray-500">← Catalog</button></nav>
-        <div class="max-w-5xl w-full grid md:grid-cols-2 gap-16 items-center">
-            <img id="p-cover" src="" class="w-full aspect-square object-cover rounded-xl shadow-2xl">
-            <div class="space-y-8">
-                <h2 id="p-title" class="text-6xl font-black italic uppercase tracking-tighter"></h2>
-                <div id="p-links" class="space-y-3"></div>
-            </div>
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20">
+        <h1 class="text-6xl sm:text-7xl md:text-9xl font-black italic uppercase tracking-tighter text-[#FF5F1F] mb-4 leading-none">
+            DoubleU
+        </h1>
+        <p class="text-[8px] md:text-[10px] tracking-[0.3em] md:tracking-[0.5em] uppercase text-cyan-400 mb-10">
+            Oklahoma City // Neural Trap
+        </p>
+        
+        <div class="flex flex-col sm:flex-row w-full max-w-xs sm:max-w-none justify-center gap-4">
+            <a href="/music" class="w-full sm:w-auto bg-white text-black px-8 py-4 font-bold uppercase text-[10px] hover:bg-[#FF5F1F] transition text-center">
+                Enter Catalog
+            </a>
+            <a href="/single/a-place-to-land" class="w-full sm:w-auto border border-white/20 px-8 py-4 font-bold uppercase text-[10px] hover:border-cyan-400 hover:text-cyan-400 transition text-center">
+                Latest Drop
+            </a>
         </div>
     </section>
-
-    <script>
-        let musicData = [];
-
-        async function init() {
-            const res = await fetch('music.json');
-            musicData = await res.json();
-            renderGrid();
-        }
-
-        function renderGrid() {
-            const container = document.getElementById('grid-container');
-            container.innerHTML = musicData.map((song, index) => `
-                <div onclick="openPlayer(${index})" class="group cursor-pointer">
-                    <img src="${song.cover_url}" class="w-full aspect-square object-cover rounded-lg mb-4 opacity-70 group-hover:opacity-100 transition-all">
-                    <h3 class="text-[10px] uppercase tracking-widest font-bold">${song.title}</h3>
-                </div>
-            `).join('');
-        }
-
-        function openPlayer(index) {
-            const song = musicData[index];
-            document.getElementById('p-title').innerText = song.title;
-            document.getElementById('p-cover').src = song.cover_url;
-            
-            const links = [
-                { name: 'Spotify', icon: 'fa-spotify', url: song.spotify_link },
-                { name: 'Apple', icon: 'fa-apple', url: song.apple_link },
-                { name: 'YouTube', icon: 'fa-youtube', url: song.youtube_link }
-            ];
-
-            document.getElementById('p-links').innerHTML = links
-                .filter(l => l.url && l.url !== "NULL")
-                .map(l => `
-                    <a href="${l.url}" target="_blank" class="glass p-4 rounded-lg flex justify-between items-center hover:bg-white/10 transition-all">
-                        <span class="text-[10px] uppercase tracking-widest"><i class="fab ${l.icon} mr-3"></i> ${l.name}</span>
-                        <i class="fas fa-external-link-alt text-[8px]"></i>
-                    </a>
-                `).join('');
-            
-            showView('player');
-        }
-
-        function showView(viewId) {
-            document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-            document.getElementById(viewId).classList.add('active');
-            window.scrollTo(0,0);
-        }
-
-        init();
-    </script>
 </body>
 </html>
