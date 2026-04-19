@@ -1,22 +1,24 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "headers": [
+  "redirects": [
     {
       "source": "/(.*)",
-      "headers": [
+      "has": [
         {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
+          "type": "host",
+          "value": "www.doubleuofficial.online"
         }
-      ]
+      ],
+      "destination": "https://doubleuofficial.online/$1",
+      "permanent": true
     }
   ],
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
     { "source": "/music", "destination": "/music.html" },
     { "source": "/single/:slug", "destination": "/single/:slug.html" },
     { "source": "/:albumname", "destination": "/:albumname/index.html" },
     { "source": "/:albumname/:track", "destination": "/:albumname/:track.html" }
   ]
 }
+
