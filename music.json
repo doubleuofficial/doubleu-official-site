@@ -1,28 +1,351 @@
 [
   {
-    "title": "A Place To Land",
+    "title": "A Place to Land",
     "slug": "a-place-to-land",
-    "type": "Single",
-    "release_date": "2026-04-24",
+    "release_type": "Single",
+    "release_date": "04242026",
+    "site_url": "/single/a-place-to-land",
     "cover_url": "/assets/single/a-place-to-land.jpg",
-    "description": "Finding stability in chaos.",
     "links": {
-      "spotify": "https://open.spotify.com/artist/78gVqbaxxYAd9aLEZJ49YG",
-      "apple": "https://music.apple.com/us/artist/doubleu/1586705800",
-      "youtube": "https://www.youtube.com/@DoubleUOTB"
+      "spotify": "NULL",
+      "apple": "NULL",
+      "youtube": "NULL"
+    }
+  },
+  {
+    "title": "Cold Sheets Wide Eyes",
+    "slug": "cold-sheets-wide-eyes",
+    "release_type": "Single",
+    "release_date": "03282026",
+    "site_url": "/single/cold-sheets-wide-eyes",
+    "cover_url": "/assets/single/cold-sheets-wide-eyes.jpg",
+    "links": {
+      "spotify": "NULL",
+      "apple": "NULL",
+      "youtube": "http://www.youtube.com/watch?v=5DQTE3P8uBY"
+    }
+  },
+  {
+    "title": "Faded 405",
+    "slug": "faded-405",
+    "release_type": "Album",
+    "release_date": "02272026",
+    "site_url": "/faded-405",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv",
+      "apple": "https://geo.music.apple.com/album/faded-405/1874730082?app=music&at=11lPP6",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Fading Out",
+    "slug": "fading-out",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 1,
+    "release_date": "02272026",
+    "site_url": "/faded-405/fading-out",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Run From The Voices",
+    "slug": "run-from-the-voices",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 2,
+    "release_date": "02272026",
+    "site_url": "/faded-405/run-from-the-voices",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Devil in the Rear View",
+    "slug": "devil-in-the-rear-view",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 3,
+    "release_date": "02272026",
+    "site_url": "/faded-405/devil-in-the-rear-view",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Shattered Echoes",
+    "slug": "shattered-echoes",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 4,
+    "release_date": "02272026",
+    "site_url": "/faded-405/shattered-echoes",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Found You in the RainFall",
+    "slug": "found-you-in-the-rainfall",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 5,
+    "release_date": "02272026",
+    "site_url": "/faded-405/found-you-in-the-rainfall",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Shadow Boxer",
+    "slug": "shadow-boxer",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 6,
+    "release_date": "02272026",
+    "site_url": "/faded-405/shadow-boxer",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Faded Frame",
+    "slug": "faded-frame",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 7,
+    "release_date": "02272026",
+    "site_url": "/faded-405/faded-frame",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "The Anniversary",
+    "slug": "the-anniversary",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 8,
+    "release_date": "02272026",
+    "site_url": "/faded-405/the-anniversary",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
     }
   },
   {
     "title": "Zero Sum",
     "slug": "zero-sum",
-    "type": "Single",
-    "description": "Aggressive soul-trap anthem.",
-    "release_date": "2026-02-06",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 9,
+    "release_date": "02272026",
+    "site_url": "/faded-405/zero-sum",
+    "cover_url": "/assets/album/faded-405.jpg",
     "links": {
-      "spotify": "...",
-      "apple": "...",
-      "youtube": "..."
-    },
-    "cover_url": "/assets/single/zero-sum.jpg"
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "The Carpenter's Hands",
+    "slug": "the-carpenters-hands",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 10,
+    "release_date": "02272026",
+    "site_url": "/faded-405/the-carpenters-hands",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Finally Free",
+    "slug": "finally-free",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 11,
+    "release_date": "02272026",
+    "site_url": "/faded-405/finally-free",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "New Foundations",
+    "slug": "new-foundations",
+    "release_type": "Album Track",
+    "album_name": "faded-405",
+    "track_number": 12,
+    "release_date": "02272026",
+    "site_url": "/faded-405/new-foundations",
+    "cover_url": "/assets/album/faded-405.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
+      "apple": "https://music.apple.com/us/album/faded-405/1874730082",
+      "youtube": "https://youtube.com/playlist?list=OLAK5uy_n3aFNgsim21cn86Zug0CJU1A4OoiZsyIM"
+    }
+  },
+  {
+    "title": "Fading Out",
+    "slug": "fading-out-single",
+    "release_type": "Single",
+    "release_date": "02142026",
+    "site_url": "/single/fading-out",
+    "cover_url": "/assets/single/fading-out.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/43Yzw824PA1wBqSQKuffgG?si=f7072b1225f24709",
+      "apple": "NULL",
+      "youtube": "http://www.youtube.com/watch?v=R7WLtQKZbLc"
+    }
+  },
+  {
+    "title": "Zero Sum",
+    "slug": "zero-sum-single",
+    "release_type": "Single",
+    "release_date": "02062026",
+    "site_url": "/single/zero-sum",
+    "cover_url": "/assets/single/zero-sum.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/0IfSNRF2HWKAovxhtEmVAR?si=b4ee7c28fbb8497b",
+      "apple": "NULL",
+      "youtube": "http://www.youtube.com/watch?v=x5XXDYMPXK0"
+    }
+  },
+  {
+    "title": "Found You in the RainFall",
+    "slug": "found-you-in-the-rainfall-single",
+    "release_type": "Single",
+    "release_date": "12102025",
+    "site_url": "/single/found-you-in-the-rainfall",
+    "cover_url": "/assets/single/found-you-in-the-rainfall.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/1AJDHaa1Vo0t1LEWm4npnc?si=4f741111234d4a4d",
+      "apple": "NULL",
+      "youtube": "http://www.youtube.com/watch?v=cC4WoU2tTOI"
+    }
+  },
+  {
+    "title": "Ain't New To Me",
+    "slug": "aint-new-to-me",
+    "release_type": "Single",
+    "release_date": "08162023",
+    "site_url": "/single/aint-new-to-me",
+    "cover_url": "/assets/single/aint-new-to-me.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/5HbGGfbk8kd1ojDl7brRej?si=9899aba660404094",
+      "apple": "NULL",
+      "youtube": "https://www.youtube.com/watch?v=muMwR_oCc3Q"
+    }
+  },
+  {
+    "title": "Closer Than Closer",
+    "slug": "closer-than-closer",
+    "release_type": "Single",
+    "release_date": "02102023",
+    "site_url": "/single/closer-than-closer",
+    "cover_url": "/assets/single/closer-than-closer.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/3bzNzh5rzBVdKiJqGnJLqn?si=2da549143fa2416b",
+      "apple": "NULL",
+      "youtube": "https://www.youtube.com/watch?v=1_zo3pkaU8A"
+    }
+  },
+  {
+    "title": "Fresh",
+    "slug": "fresh",
+    "release_type": "Single",
+    "release_date": "06152022",
+    "site_url": "/single/fresh",
+    "cover_url": "/assets/single/fresh.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/2BEBl7ruISt3BibdmlKPvd?si=57d8591e8ecf4407",
+      "apple": "NULL",
+      "youtube": "https://www.youtube.com/watch?v=WVNMp1BWHX0"
+    }
+  },
+  {
+    "title": "Trippin",
+    "slug": "trippin",
+    "release_type": "Single",
+    "release_date": "01122022",
+    "site_url": "/single/trippin",
+    "cover_url": "/assets/single/trippin.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/3ZStzbgDQrK23SewNWJWAv?si=9b06bf96e807419f",
+      "apple": "NULL",
+      "youtube": "https://youtu.be/bG6DXhnnpHk"
+    }
+  },
+  {
+    "title": "Pakkage Deal",
+    "slug": "pakkage-deal",
+    "release_type": "Single",
+    "release_date": "10202021",
+    "site_url": "/single/pakkage-deal",
+    "cover_url": "/assets/single/pakkage-deal.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/6MrxJOCka8l10U2conKbKH?si=a21cfdc47bd84388",
+      "apple": "https://music.apple.com/us/song/pakkage-deal/1606073057",
+      "youtube": "NULL"
+    }
+  },
+  {
+    "title": "Real life Trauma",
+    "slug": "real-life-trauma",
+    "release_type": "Single",
+    "release_date": "07152021",
+    "site_url": "/single/real-life-trauma",
+    "cover_url": "/assets/single/real-life-trauma.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/5aDwcEWK2a3slOnf94GoTw?si=ffafa5777c584edf",
+      "apple": "https://music.apple.com/us/album/real-life-trauma-single/1591301889",
+      "youtube": "https://www.youtube.com/watch?v=lM-dU1vHwK8"
+    }
+  },
+  {
+    "title": "Two of Us",
+    "slug": "two-of-us",
+    "release_type": "Single",
+    "release_date": "03122021",
+    "site_url": "/single/two-of-us",
+    "cover_url": "/assets/single/two-of-us.jpg",
+    "links": {
+      "spotify": "https://open.spotify.com/track/4VJ5YQKZZtPNbCxpvRPw4j?si=bd6b2c69b2a445c2&nd=1&dlsi=1e0cf24f5f924ab1",
+      "apple": "NULL",
+      "youtube": "https://www.youtube.com/watch?v=KA1bZeM5gZs"
+    }
   }
 ]
