@@ -1,19 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.doubleuofficial.online"
-        }
-      ],
-      "destination": "https://doubleuofficial.online/$1",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     { "source": "/music", "destination": "/music.html" },
     { "source": "/single/:slug", "destination": "/single/:slug.html" },
@@ -21,4 +8,3 @@
     { "source": "/:albumname/:track", "destination": "/:albumname/:track.html" }
   ]
 }
-
