@@ -5,7 +5,7 @@
     "release_type": "Single",
     "release_date": "04242026",
     "site_url": "/single/a-place-to-land",
-    "cover_url": "/assets/single/a-place-to-land.jpg",
+    "cover_url": "/assets/single/a-place-to-land.webp",
     "links": {
       "spotify": "NULL",
       "apple": "NULL",
@@ -18,7 +18,7 @@
     "release_type": "Single",
     "release_date": "03282026",
     "site_url": "/single/cold-sheets-wide-eyes",
-    "cover_url": "/assets/single/cold-sheets-wide-eyes.jpg",
+    "cover_url": "/assets/single/cold-sheets-wide-eyes.webp",
     "links": {
       "spotify": "NULL",
       "apple": "NULL",
@@ -31,7 +31,7 @@
     "release_type": "Album",
     "release_date": "02272026",
     "site_url": "/faded-405",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv",
       "apple": "https://geo.music.apple.com/album/faded-405/1874730082?app=music&at=11lPP6",
@@ -46,7 +46,7 @@
     "track_number": 1,
     "release_date": "02272026",
     "site_url": "/faded-405/fading-out",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -61,7 +61,7 @@
     "track_number": 2,
     "release_date": "02272026",
     "site_url": "/faded-405/run-from-the-voices",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -76,7 +76,7 @@
     "track_number": 3,
     "release_date": "02272026",
     "site_url": "/faded-405/devil-in-the-rear-view",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -91,7 +91,7 @@
     "track_number": 4,
     "release_date": "02272026",
     "site_url": "/faded-405/shattered-echoes",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -106,7 +106,7 @@
     "track_number": 5,
     "release_date": "02272026",
     "site_url": "/faded-405/found-you-in-the-rainfall",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -121,7 +121,7 @@
     "track_number": 6,
     "release_date": "02272026",
     "site_url": "/faded-405/shadow-boxer",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -136,7 +136,7 @@
     "track_number": 7,
     "release_date": "02272026",
     "site_url": "/faded-405/faded-frame",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -151,7 +151,7 @@
     "track_number": 8,
     "release_date": "02272026",
     "site_url": "/faded-405/the-anniversary",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -166,7 +166,7 @@
     "track_number": 9,
     "release_date": "02272026",
     "site_url": "/faded-405/zero-sum",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -181,7 +181,7 @@
     "track_number": 10,
     "release_date": "02272026",
     "site_url": "/faded-405/the-carpenters-hands",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -196,7 +196,7 @@
     "track_number": 11,
     "release_date": "02272026",
     "site_url": "/faded-405/finally-free",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -211,7 +211,7 @@
     "track_number": 12,
     "release_date": "02272026",
     "site_url": "/faded-405/new-foundations",
-    "cover_url": "/assets/album/faded-405.jpg",
+    "cover_url": "/assets/album/faded-405.webp",
     "links": {
       "spotify": "https://open.spotify.com/album/0udTHknZfINCMd8ipkmaGv?si=9Qq-ZyJvQR-JeHQuN19m4g",
       "apple": "https://music.apple.com/us/album/faded-405/1874730082",
@@ -224,7 +224,7 @@
     "release_type": "Single",
     "release_date": "02142026",
     "site_url": "/single/fading-out",
-    "cover_url": "/assets/single/fading-out.jpg",
+    "cover_url": "/assets/single/fading-out.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/43Yzw824PA1wBqSQKuffgG?si=f7072b1225f24709",
       "apple": "NULL",
@@ -237,7 +237,7 @@
     "release_type": "Single",
     "release_date": "02062026",
     "site_url": "/single/zero-sum",
-    "cover_url": "/assets/single/zero-sum.jpg",
+    "cover_url": "/assets/single/zero-sum.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/0IfSNRF2HWKAovxhtEmVAR?si=b4ee7c28fbb8497b",
       "apple": "NULL",
@@ -250,7 +250,7 @@
     "release_type": "Single",
     "release_date": "12102025",
     "site_url": "/single/found-you-in-the-rainfall",
-    "cover_url": "/assets/single/found-you-in-the-rainfall.jpg",
+    "cover_url": "/assets/single/found-you-in-the-rainfall.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/1AJDHaa1Vo0t1LEWm4npnc?si=4f741111234d4a4d",
       "apple": "NULL",
@@ -263,7 +263,7 @@
     "release_type": "Single",
     "release_date": "08162023",
     "site_url": "/single/aint-new-to-me",
-    "cover_url": "/assets/single/aint-new-to-me.jpg",
+    "cover_url": "/assets/single/aint-new-to-me.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/5HbGGfbk8kd1ojDl7brRej?si=9899aba660404094",
       "apple": "NULL",
@@ -276,7 +276,7 @@
     "release_type": "Single",
     "release_date": "02102023",
     "site_url": "/single/closer-than-closer",
-    "cover_url": "/assets/single/closer-than-closer.jpg",
+    "cover_url": "/assets/single/closer-than-closer.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/3bzNzh5rzBVdKiJqGnJLqn?si=2da549143fa2416b",
       "apple": "NULL",
@@ -289,7 +289,7 @@
     "release_type": "Single",
     "release_date": "06152022",
     "site_url": "/single/fresh",
-    "cover_url": "/assets/single/fresh.jpg",
+    "cover_url": "/assets/single/fresh.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/2BEBl7ruISt3BibdmlKPvd?si=57d8591e8ecf4407",
       "apple": "NULL",
@@ -302,7 +302,7 @@
     "release_type": "Single",
     "release_date": "01122022",
     "site_url": "/single/trippin",
-    "cover_url": "/assets/single/trippin.jpg",
+    "cover_url": "/assets/single/trippin.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/3ZStzbgDQrK23SewNWJWAv?si=9b06bf96e807419f",
       "apple": "NULL",
@@ -315,7 +315,7 @@
     "release_type": "Single",
     "release_date": "10202021",
     "site_url": "/single/pakkage-deal",
-    "cover_url": "/assets/single/pakkage-deal.jpg",
+    "cover_url": "/assets/single/pakkage-deal.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/6MrxJOCka8l10U2conKbKH?si=a21cfdc47bd84388",
       "apple": "https://music.apple.com/us/song/pakkage-deal/1606073057",
@@ -328,7 +328,7 @@
     "release_type": "Single",
     "release_date": "07152021",
     "site_url": "/single/real-life-trauma",
-    "cover_url": "/assets/single/real-life-trauma.jpg",
+    "cover_url": "/assets/single/real-life-trauma.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/5aDwcEWK2a3slOnf94GoTw?si=ffafa5777c584edf",
       "apple": "https://music.apple.com/us/album/real-life-trauma-single/1591301889",
@@ -341,7 +341,7 @@
     "release_type": "Single",
     "release_date": "03122021",
     "site_url": "/single/two-of-us",
-    "cover_url": "/assets/single/two-of-us.jpg",
+    "cover_url": "/assets/single/two-of-us.webp",
     "links": {
       "spotify": "https://open.spotify.com/track/4VJ5YQKZZtPNbCxpvRPw4j?si=bd6b2c69b2a445c2&nd=1&dlsi=1e0cf24f5f924ab1",
       "apple": "NULL",

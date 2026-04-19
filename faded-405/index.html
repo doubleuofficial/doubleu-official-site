@@ -1,81 +1,96 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faded 405 | DoubleU</title>
+    <title>Faded 405 // DoubleU</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        body { background: #050505; color: white; font-family: sans-serif; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .neon-text { color: #06b6d4; text-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
-        
-        /* Specific Album Accent */
-        .track-row:hover { background: rgba(6, 182, 212, 0.05); border-left: 3px solid #06b6d4; }
-        .track-row { border-left: 3px solid transparent; transition: all 0.3s ease; }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body class="p-6 md:p-12">
-
-    <nav class="max-w-6xl mx-auto w-full mb-16 flex justify-between items-center">
-        <a href="/" class="text-[9px] uppercase tracking-[0.5em] text-gray-500 hover:text-white transition-all">← Back to Main</a>
-        <span class="text-[9px] uppercase tracking-[0.5em] text-cyan-500 font-bold">Full Project</span>
-    </nav>
-
-    <main class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-16 items-start">
-        
-        <div class="lg:col-span-5 space-y-8 sticky top-12">
-            <div class="relative group">
-                <img src="/assets/faded-405-cover.jpg" alt="Faded 405" class="w-full aspect-square object-cover rounded-2xl shadow-2xl">
-                <div class="absolute -inset-10 bg-cyan-500/5 blur-3xl -z-10"></div>
+<body class="bg-[#050505] text-[#eee] p-6 md:p-10">
+    <div class="film-grain"></div>
+    <div class="max-w-4xl mx-auto">
+        <header class="flex flex-col md:flex-row gap-10 items-center mb-16">
+            <img src="/assets/album/faded-405.webp" class="w-64 h-64 object-cover shadow-2xl">
+            <div class="text-center md:text-left">
+                <h1 class="text-6xl font-black italic uppercase tracking-tighter text-[#FF5F1F]">Faded 405</h1>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mt-2">Full Project // 02272026</p>
             </div>
-            <div class="space-y-4">
-                <h1 class="text-7xl font-black italic tracking-tighter uppercase leading-none">Faded<br><span class="neon-text">405</span></h1>
-                <p class="text-[10px] tracking-[0.6em] text-gray-500 uppercase font-bold">April 2026 Release</p>
-            </div>
-        </div>
-
-        <div class="lg:col-span-7 space-y-4">
-            <h3 class="text-[10px] uppercase tracking-[0.4em] text-gray-600 mb-8 font-bold px-4">Tracklist Selection</h3>
-            <div id="track-list" class="space-y-2">
-                </div>
-        </div>
-    </main>
-
-    <script>
-        async function loadAlbumTracks() {
-            try {
-                const res = await fetch('/music.json');
-                const music = await res.json();
-
-                // Filter for tracks that belong specifically to this album
-                const tracks = music.filter(m => m.album_name === "Faded 405" || m.type === "Album Track");
-
-                const listContainer = document.getElementById('track-list');
-                listContainer.innerHTML = tracks.map((track, index) => {
-                    // Logic to find the best streaming link
-                    const playLink = track.spotify_link !== "NULL" ? track.spotify_link : 
-                                    track.apple_link !== "NULL" ? track.apple_link : 
-                                    track.youtube_link;
-
-                    return `
-                        <a href="${playLink}" target="_blank" class="track-row glass flex items-center justify-between p-6 rounded-r-xl group">
-                            <div class="flex items-center gap-6">
-                                <span class="text-[10px] font-bold text-gray-600 group-hover:text-cyan-500">${String(index + 1).padStart(2, '0')}</span>
-                                <span class="text-[12px] uppercase tracking-[0.2em] font-bold group-hover:translate-x-2 transition-transform">${track.title}</span>
-                            </div>
-                            <i class="fas fa-external-link-alt text-[10px] text-gray-700 group-hover:text-cyan-400"></i>
-                        </a>
-                    `;
-                }).join('');
-
-            } catch (err) {
-                console.error("Error loading album tracks:", err);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', loadAlbumTracks);
-    </script>
+        </header>
+        <div class="space-y-2">
+        <a href="/faded-405/fading-out" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">01</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Fading Out</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/run-from-the-voices" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">02</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Run From The Voices</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/devil-in-the-rear-view" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">03</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Devil in the Rear View</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/shattered-echoes" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">04</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Shattered Echoes</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/found-you-in-the-rainfall" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">05</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Found You in the RainFall</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/shadow-boxer" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">06</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Shadow Boxer</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/faded-frame" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">07</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Faded Frame</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/the-anniversary" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">08</span>
+            <span class="font-bold uppercase tracking-widest text-sm">The Anniversary</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/zero-sum" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">09</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Zero Sum</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/the-carpenters-hands" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">10</span>
+            <span class="font-bold uppercase tracking-widest text-sm">The Carpenter's Hands</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/finally-free" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">11</span>
+            <span class="font-bold uppercase tracking-widest text-sm">Finally Free</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    
+        <a href="/faded-405/new-foundations" class="flex justify-between items-center p-4 border-b border-white/5 hover:bg-white/5 transition">
+            <span class="text-xs text-gray-500 italic">12</span>
+            <span class="font-bold uppercase tracking-widest text-sm">New Foundations</span>
+            <span class="text-[9px] text-cyan-400">VIEW //</span>
+        </a>
+    </div>
+    </div>
 </body>
 </html>
